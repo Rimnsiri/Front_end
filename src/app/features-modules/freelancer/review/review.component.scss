@@ -1,0 +1,39 @@
+.tags {
+    list-style-type: none;
+    padding: 0;
+}
+
+.badge-design {
+    background-color: #FFF6F1;
+    color: #333;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.skill-name {
+    display: flex;
+    align-items: center;
+}
+
+.skill-image {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.skill-experience {
+    margin-left: auto;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: #E65425; 
+    text-decoration: underline; 
+    cursor: pointer; 
+}

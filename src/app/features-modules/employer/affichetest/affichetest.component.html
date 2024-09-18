@@ -1,0 +1,82 @@
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+    <div class="container">
+        <div class="row align-items-center inner-banner">
+            <div class="col-md-12 col-12 text-center">
+                <div class="breadcrumb-list">
+                    <h3>Liste des Tests Acceptés</h3>
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="routes.home">Accueil</a></li>
+                            <li class="breadcrumb-item"><a [routerLink]="['/employer/test']">Tests</a></li>
+                           
+                            <li class="breadcrumb-item" aria-current="page">Tests Acceptés</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
+<!-- Page Content -->
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div *ngIf="tests.length > 0" class="col-md-12">
+                <div class="test-item border p-3">
+                    <div class="test-info">
+                        <h3>Nom du test :  <strong>{{ tests[0].nom }}</strong></h3>
+                        
+                        <div class="additional-info">
+                            <p><strong>Description du test :</strong> {{ tests[0].description }}</p>
+                            <p><strong>Catégorie :</strong> {{ tests[0].categorie }}</p>
+                            <p><strong>Niveau :</strong> {{ tests[0].niveau }}</p>
+                            <p><strong>Durée estimée :</strong> {{ tests[0].duree_estimee }} minutes</p>
+                        </div>
+                        <div *ngIf="showPdfButton" class="pdf-button">
+                            <button class="log-btn custom-width" (click)="afficherPdf()">Afficher le Test</button>
+                          </div>
+                    </div>
+                    
+                    <div *ngIf="showPdf" class="pdf-container">
+                        <iframe [src]="pdfUrl" width="100%" height="600px" frameborder="0"></iframe>
+                      </div>
+                    <br>
+                    <button class="log-btn custom-width" *ngIf="showPdf" (click)="commencerTest()">Commencer le test</button>
+                </div><br>
+            </div><br>
+            <div *ngIf="tests.length === 0" class="col-md-12">
+                <p>Aucun test trouvé pour le mot-clé donné.</p>
+            </div>
+            <br>
+           
+            <div class="form-group" *ngIf="showReponses">
+                <div class="timer-container">
+                    <div class="timer">
+                        <span class="timer-label">Durée restante :</span>
+                        <span class="duree-restante">{{ formatTime(dureeRestante) }}</span>
+                    </div>
+                </div>
+            
+                <div class="question-label">
+                    <label for="reponse">Merci de numéroter vos questions, Bonne Chance!</label>
+                </div>
+                
+                <textarea class="form-control" rows="3" [(ngModel)]="reponse" (keyup)="updateReponse()" required></textarea><br>
+                <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                    {{ successMessage }}
+                </div>
+                
+                <button class="btn btn-success" (click)="envoyerReponses()">Envoyer les réponses</button>
+            </div>
+            
+ 
+      
+ 
+</div>
+
+        </div>
+    </div>
+<!--</div>>-->
+<!-- /Page Content -->

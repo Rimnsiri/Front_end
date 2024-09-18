@@ -1,0 +1,217 @@
+
+<div class="main-wrapper account-page">
+    <div class="login-wrapper">
+        <div class="content w-100">
+            <!-- Login Content -->
+            <div class="account-content">
+                <div class="align-items-center justify-content-center">
+                    <div class="login-right">
+                        <div class="login-header text-center">
+                            <a [routerLink] = "routes.home"><img src="assets/img/logo.svg" alt="logo" class="img-fluid" style="height: 150px;"></a>
+                            <h3>Rejoignez notre communauté</h3>
+                        </div>
+                        <nav class="user-tabs mb-4">
+                            <ul role="tablist" class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="reg-btn me-2"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#update-category">Entreprise</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a  class="log-btn me-2"  href="javascript:void()"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#add-category" > Développeur</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="tab-content pt-0">
+                            <div class="modal fade custom-modal" id="update-category">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header flex-wrap">
+                                            <h4 class="modal-title">Register Entreprise</h4>
+                                            <button type="button" class="close" data-bs-dismiss="modal">
+                                              <span>&times;</span>
+                                            </button>
+                                          </div>
+                                        <div *ngIf="registrationSuccess" class="alert " role="alert">
+                                            <span style="color:green;"> Inscription réussie !</span>
+                                          </div> 
+                                          <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                                            {{ errorMessage }}
+                                          </div>
+                                          <div class="modal-body">
+                                            <form [formGroup]="formEntreprise" (ngSubmit)="registerentreprise(formEntreprise.value)">
+                                                <div class="input-block">
+                                                    <label for="nom" class="focus-label">Nom<span class="label-star"> *</span></label>
+                                                    <input type="text" id="nom" formControlName="nom" class="form-control form-control-lg" placeholder="Ajouter votre nom" required>
+                                                    <div *ngIf="formEntreprise.get('nom')?.touched && formEntreprise.get('nom')?.errors" class="alert alert-custom">
+                                                        <span style="color: red;">Le nom est requis.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="input-block">
+                                                    <label for="domaine" class="focus-label">Domaine<span class="label-star"> *</span></label>
+                                                    <input type="text" id="domaine" formControlName="domaine" class="form-control form-control-lg" placeholder="Ajouter votre domaine" required>
+                                                    <div *ngIf="formEntreprise.get('domaine')?.touched && formEntreprise.get('domaine')?.errors" class="alert alert-custom">
+                                                        <span style="color: red;">Le domaine est requis.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="input-block">
+                                                    <label for="email" class="focus-label">Email<span class="label-star"> *</span></label>
+                                                    <input type="email" id="email" formControlName="email" class="form-control form-control-lg" placeholder="Ajouter votre email" required>
+                                                    <div *ngIf="formEntreprise.get('email')?.touched && formEntreprise.get('email')?.errors" class="alert alert-custom">
+                                                        <span style="color: red;">L'email est requis.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="input-block">
+                                                    <label for="password" class="focus-label">Mot de passe <span class="label-star"> *</span></label>
+                                                    <input type="password" id="password" formControlName="password" class="form-control form-control-lg" placeholder="Ajouter votre mot de passe" required>
+                                                    <div *ngIf="formEntreprise.get('password')?.touched && formEntreprise.get('password')?.errors" class="alert alert-custom">
+                                                        <span style="color: red;">Le mot de passe  est requis.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="input-block">
+                                                    <label for="confirmepassword" class="focus-label">Confirmer votre mot de passe <span class="label-star"> *</span></label>
+                                                    <input type="password" id="confirmepassword" formControlName="confirmepassword" class="form-control form-control-lg" placeholder="Ajouter la confirmation de votre mot de passe" required>
+                                                    <div *ngIf="formEntreprise.get('confirmepassword')?.touched && formEntreprise.get('confirmepassword')?.errors" class="alert alert-custom">
+                                                        <span style="color: red;">La confirmation de votre mot de passe est requise.</span>
+                                                    </div>
+                                                </div>
+                                                 
+                                              
+                                            <div class="dont-have">
+                                                <label class="custom_check">
+                                                    <input type="checkbox" name="rem_password">
+                                                    <span class="checkmark"></span> Sauvegarder  
+                                                </label>
+                                            </div>
+                                            <button class="btn btn-primary w-100 btn-lg login-btn" type="submit" [disabled]="!formEntreprise.valid">S'inscrire <i class="feather icon-arrow-right ms-2"></i></button>	
+                                            <div class="login-or">
+                                                <p><span>Ou</span></p>
+                                            </div>
+                                            <div class="row social-login">
+                                                <div class="col-sm-4">
+                                                    <a href="javascript:void(0);" class="btn btn-block"><img src="assets/img/icon/google-icon.svg" alt="Google">Google</a>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <a href="javascript:void(0);" class="btn btn-block"><img src="assets/img/icon/fb-icon.svg" alt="Fb">Facebook</a>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <a href="javascript:void(0);" class="btn btn-block"><img src="assets/img/icon/linkedin-icon-2-logo-svgrepo-com.svg" style="width: 15%;" alt="Apple">linkedin</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-8 dont-have d-flex  align-items-center">Vous avez déjà un compte ? <a [routerLink]="['/auth/loginemplye']" class="ms-2">Connecter</a></div>
+                                            </div>
+                                        </form>
+                                           
+                                          </div>
+                                          
+                                    </div>
+                                    
+                                </div>
+                               
+
+                            </div>
+                            
+
+                                <div  id="add-category" class="modal fade custom-modal" >
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header flex-wrap">
+                                                <h4 class="modal-title">Register Développeur</h4>
+                                                <button type="button" class="close" data-bs-dismiss="modal">
+                                                  <span>&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <form [formGroup]="form" (ngSubmit)="register(form.value)">
+                                                    <div class="input-block">
+                                                        <label for="nom" class="focus-label">Nom<span class="label-star"> *</span></label>
+                                                        <input type="text" id="nom" formControlName="nom" class="form-control form-control-lg" placeholder="Ajouter votre nom" required>
+                                                        <div *ngIf="form.get('nom')?.touched && form.get('nom')?.errors" class="alert alert-custom">
+                                                            <span style="color: red;"> Le nom est requis.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-block">
+                                                        <label for="prénom" class="focus-label">Prénom<span class="label-star"> *</span></label>
+                                                        <input type="text" id="prénom" formControlName="prénom" class="form-control form-control-lg" placeholder="Ajouter votre prénom" required>
+                                                        <div *ngIf="form.get('prénom')?.touched && form.get('prénom')?.errors" class="alert alert-custom">
+                                                            <span style="color: red;">Le prénom est requis.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-block">
+                                                        <label for="email" class="focus-label">Email<span class="label-star"> *</span></label>
+                                                        <input type="email" id="email" formControlName="email" class="form-control form-control-lg" placeholder="Ajouter votre email" required>
+                                                        <div *ngIf="form.get('email')?.touched && form.get('email')?.errors" class="alert alert-custom">
+                                                            <span style="color: red;">L'email est requis.</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-block">
+                                                        <label for="password" class="focus-label">Mot de passe <span class="label-star"> *</span></label>
+                                                        <input type="password" id="password" formControlName="password" class="form-control form-control-lg" placeholder="Ajouter votre mot de passe" required>
+                                                        <div *ngIf="form.get('password')?.touched && form.get('password')?.errors" class="alert alert-custom ">
+                                                            <span style="color:red;">Le mot de passe est requis.</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="input-block">
+                                                        <label for="confirmepassword" class="focus-label">Confirmer votre mot de passe <span class="label-star"> *</span></label>
+                                                        <input type="password" id="confirmepassword" formControlName="confirmepassword" class="form-control form-control-lg" placeholder="Ajouter la confirmation de votre mot de passe" required>
+                                                        <div *ngIf="form.get('confirmepassword')?.touched && form.get('confirmepassword')?.errors" class="alert alert-custom">
+                                                            <span style="color:red;">La confirmation de de votre mot de passe est requise.</span>
+                                                        </div>
+                                                    </div>
+                                                
+                                                    <div class="dont-have">
+                                                        <label class="custom_check">
+                                                            <input type="checkbox" formControlName="remPassword" [ngModel]="rememberPassword" (ngModelChange)="rememberPassword = $event" required>
+                                                            <span class="checkmark"></span> Sauvegarder
+                                                        </label>
+                                                        <div *ngIf="form.controls['remPassword'].touched && !form.controls['remPassword'].value" class="alert">
+                                                            <span style="color: red;"> Vous devez cocher cette case pour continuer.</span>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                      
+                                                    <button class="btn btn-primary w-100 btn-lg login-btn d-flex align-items-center justify-content-center" type="submit" [disabled]="!form.valid">S'inscrire <i class="feather icon-arrow-right ms-2"></i></button>
+                                                   
+                                                    <div class="login-or">
+                                                      <p><span>Ou</span></p>
+                                                    </div>
+                                                    
+                                                    <div class="row social-login">
+                                                      <div class="col-sm-4">
+                                                        <a href="javascript:void(0);" class="btn btn-block"><img src="assets/img/icon/google-icon.svg" alt="Google">Google</a>
+                                                      </div>
+                                                      <div class="col-sm-4">
+                                                        <a href="javascript:void(0);" class="btn btn-block"><img src="assets/img/icon/fb-icon.svg" alt="Fb">Facebook</a>
+                                                      </div>
+                                                      <div class="col-sm-4">
+                                                        <a href="javascript:void(0);" class="btn btn-block"><img src="assets/img/icon/linkedin-icon-2-logo-svgrepo-com.svg" alt="Apple" style="width: 16%;">linkedin</a>
+                                                      </div>
+                                                    </div>
+                                                    
+                                                    <div class="row">
+                                                      <div class="col-sm-8 dont-have d-flex  align-items-center">Vous avez déjà un compte ? <a [routerLink]="['/auth/login']" class="ms-2">Connecter</a></div>
+                                                    </div>
+                                                  </form>
+                                              </div>
+                                           
+                                        </div>
+                                       
+                                    </div>
+                                    
+                            </div>
+                        
+                            
+                        </div>		
+                    </div>
+                </div>
+            </div>
+            <!-- /Login Content -->
+        </div>	
+    </div>
+</div>
+

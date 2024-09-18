@@ -1,0 +1,139 @@
+ul {
+    list-style-type: none; /* Supprime les puces par défaut */
+    padding-left: 40px; /* Supprime le remplissage à gauche par défaut */
+}
+
+li:before {
+    /* Utilise un point (•) comme symbole */
+    margin-right: 5px; /* Ajoute un espace entre le point et le texte */
+}
+.terms-content {
+    text-align: justify;
+}
+.log-btn{
+    width: 180px;
+    height: 42px;
+    display: inline-block;
+    border-radius: 5px;
+    border-color: transparent;
+    text-transform: capitalize;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    background-color: #E65425;
+    padding: 9px 20px;
+    font-weight: 700;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    text-align: center;
+    margin-right: 10px; 
+  }
+ .log-btn:hover{
+  background: #161c2d;
+    color: #fff;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+ }
+ .main-nav li a:hover {
+  color: rgb(249, 90, 32);
+  cursor: pointer; /* Change le curseur en un pointeur */
+}
+.reg-btn{
+  cursor: pointer; 
+ 
+}
+log-btn{
+  cursor: pointer !important; 
+}
+.custom-width {
+  width: 200px;
+}
+.input-container {
+  width: fit-content; /* Ajuste la largeur de l'élément au contenu */
+  margin: auto; /* Centre l'élément horizontalement */
+}
+
+
+
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  margin-left: 5px;
+}
+
+
+.checkbox-input {
+  margin-right: 5px; /* Ajoute un espacement entre la case à cocher et le texte */
+}
+// Dans votre fichier affichetest.component.scss
+
+// Style pour le paragraphe de la durée restante
+.duree-restante {
+  font-size: 16px;
+  color: #333;
+  margin-top: 5px;
+}
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+}
+
+.timer-label {
+  margin-bottom: 5px;
+}
+
+.duree-restante {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e44e21 !important; /* Couleur du texte bleu */
+}
+.question-label {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6600; /* Orange vif */
+  animation: pulse 2s infinite alternate; /* Animation pulsation */
+  margin-bottom: 20px;
+}
+
+@keyframes pulse {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(1.05);
+  }
+}
+.test-info {
+  background-color: #f5f5f5; /* Couleur de fond */
+  padding: 20px;
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  margin-bottom: 20px; /* Marge en bas */
+}
+
+.additional-info {
+  margin-top: 10px; /* Marge au-dessus des informations supplémentaires */
+}
+
+.pdf-button {
+  margin-top: 20px; /* Marge au-dessus du bouton PDF */
+}
+

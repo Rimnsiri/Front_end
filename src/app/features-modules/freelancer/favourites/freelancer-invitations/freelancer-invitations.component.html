@@ -1,0 +1,28 @@
+<div class="dashboard-sec freelance-favourites">
+    <div class="page-header">
+        <div class="row">
+            <div class="col">
+                <h3 class="page-title">Résultat Des Tests</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="'/freelancer/dashboards'">Home</a></li>
+                    <li class="breadcrumb-item active">Résultat Des Tests</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row row-gap">
+        <ng-container *ngFor="let developer of developerNotes">
+            <div class="col-md-6 col-lg-12 col-xl-4">
+                <div class="card">
+                    <div class="card-body">
+						<p style="padding-left: 150px;">Votre ID: {{ developer.id }}</p>
+						<h5 class="card-title">Test ID: {{ testId }}</h5> <!-- Affichage de l'ID du test -->
+						
+						<p class="card-text">Note: {{ developer.note }}/20</p>
+					</div>
+					
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

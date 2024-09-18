@@ -1,0 +1,474 @@
+<div class="dashboard-sec">
+  <div class="page-title">
+    <h3>Tableau de bord</h3>
+  </div>
+  <div>
+    <button  [routerLink]="['/employer/test']" class="btn btn-primary">Passer un test</button>
+</div><br>
+  <div class="row">
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="dash-widget">
+        <div class="dash-info">
+          <div class="dashboard-icon">
+            <i class="fa-regular fa-comment"></i>
+          </div>
+          <div class="dash-widget-info">Message</div>
+        </div>
+        <div
+          class="dash-widget-more d-flex align-items-center justify-content-between"
+        >
+          <div class="dash-widget-count">{{ totalMessages }}</div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="dash-widget">
+        <div class="dash-info">
+          <div class="dashboard-icon dashboard-icon-two">
+            <i class="fa-regular fa-file"></i>
+          </div>
+          <div class="dash-widget-info">Nombre Cv</div>
+        </div>
+        <div
+          class="dash-widget-more d-flex align-items-center justify-content-between"
+        >
+          <div class="dash-widget-count">{{ cvCount }}</div>
+         
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="dash-widget">
+        <div class="dash-info">
+          <div class="dashboard-icon dashboard-icon-three">
+            <i class="fa-solid fa-newspaper"></i>
+          </div>
+          <div class="dash-widget-info">Nombre de tests:</div>
+        </div>
+        <div
+          class="dash-widget-more d-flex align-items-center justify-content-between"
+        >
+          <div class="dash-widget-count">
+            <!-- test-dashboard.component.html -->
+<div class="dashboard-widget-info"> {{ testCount }}</div>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Chart Content -->
+  <div class="page-header profile-information">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <h3 class="page-title">Liste des Cv</h3>
+        <p>Liste des Cv .</p>
+      </div>
+    </div>
+  </div>
+  <!-- /Chart Content -->
+
+  <div class="card">
+    <div class="table-responsive">
+      <table
+        datatable
+        class="table table-center table-hover mb-0 user-tables user-activities"
+      >
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cv of cvs">
+            <td>{{ cv.id }}</td>
+            <td>{{ cv.title }}</td>
+            <td>{{ cv.description }}</td>
+            <td>
+              <a
+                class="btn btn-sm btn-secondary me-2"
+                href="javascript:void()"
+                data-bs-toggle="modal"
+                data-bs-target="#add-category"
+                (click)="loadCvDetails(cv.id)"
+                ><i class="fa-solid fa-eye"></i
+              ></a>
+              <button
+                class="btn btn-sm btn-success me-2"
+                data-bs-toggle="modal"
+                data-bs-target="#update-category"
+                (click)="selectCv(cv)"
+              >
+                <i class="fa-solid fa-file-pen"></i>
+              </button>
+              <button
+                class="btn btn-sm btn-danger me-2"
+                (click)="deleteCv(cv.id)"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal fade custom-modal" id="add-category">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header flex-wrap">
+          <div class="text-center w-100 mb-3">
+            <img src="assets/admin/img/logo-small.png" alt="" />
+          </div>
+          <h4 class="modal-title">Détails Cv</h4>
+          <button type="button" class="close" data-bs-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <h4 class="company-detail-title">{{ selectedCvDetails?.title }}</h4>
+          <div class="project-proposal-detail">
+						<ul>
+							<li>
+								<div class="proposal-detail-img">
+									<img src="assets/img/icon/computer-line.svg" alt="icons">
+								</div>
+								<div class="proposal-detail text-capitalize">
+									<span class=" d-block">Niveau</span>
+									<p class="mb-0">{{ selectedCvDetails?.niveau }}</p>
+								</div>
+							</li>
+							<li>
+								<div class="proposal-detail-img">
+									<img src="assets/img/icon/time-line.svg" alt="icons">
+								</div>
+								<div class="proposal-detail text-capitalize">
+									<span class=" d-block">Tjm</span>
+									<p class="mb-0">{{ selectedCvDetails?.tjm }}</p>
+								</div>
+							</li>
+							<li>
+								<div class="proposal-detail-img">
+									<img src="assets/img/icon/translate-2.svg" alt="icons">
+								</div>
+								<div class="proposal-detail text-capitalize">
+									<span class=" d-block">Niveau Français</span>
+									<p class="mb-0">{{ selectedCvDetails?.french_level }}</p>
+								</div>
+							</li>
+							<li>
+								<div class="proposal-detail-img">
+									<img src="assets/img/icon/translate-2.svg" alt="icons">
+								</div>
+								<div class="proposal-detail text-capitalize">
+									<span class=" d-block">Niveau Anglais</span>
+									<p class="mb-0">{{ selectedCvDetails?.english_level }}</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+          <div class="company-detail-block company-description">
+            <h4 class="company-detail-title">Description</h4>
+            <p>{{ selectedCvDetails?.description }}.</p>
+          </div>
+          <div class="card budget-widget">
+            <h4 style="text-align: center">Compétences</h4>
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="tags">
+                  <li *ngFor="let skill of selectedCvDetails?.skills"class="badge-design">
+                    <span class="skill-name">
+          
+                      {{ skill.name }}
+                    </span>
+                    <span class="skill-experience">{{ skill.pivot.nbrmonth }} mois</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="company-detail-block company-description">
+          <h4 class="company-detail-title">Expérience</h4>
+            <div
+              class="experience-set"
+              *ngFor="let exp of selectedCvDetails?.experiences"
+            >
+              <div class="experience-set-img">
+                <img src="assets/img/icon/expereience.png" alt="img" />
+              </div>
+              <div class="experience-set-content">
+                <h5>
+                  {{ exp.title
+                  }}<span
+                    >{{ exp.startdate | date : "yyyy" }} -
+                    {{
+                      exp.enddate
+                        ? (exp.enddate | date : "yyyy")
+                        : "Présent"
+                    }}</span
+                  >
+                </h5>
+                <span>{{ exp.entreprisename }}</span>
+                <p>{{ exp.description }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="company-detail-block company-description">
+            <h4 class="company-detail-title">Éducation</h4>
+      
+              <div
+                class="experience-set"
+                *ngFor="let edu of selectedCvDetails?.educations"
+              >
+                <div class="experience-set-img">
+                  <img src="assets/img/icon/report.png" alt="img" />
+                </div>
+                <div class="experience-set-content">
+                  <h5>
+                    {{ edu.diplome
+                    }}<span
+                      >{{ edu.startdate }} - {{ edu.enddate }}</span
+                    >
+                  </h5>
+                  <span>{{ edu["école"] }}</span>
+                  <p>{{ edu.description }}</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade custom-modal" id="update-category" #updateModal >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header flex-wrap">
+          <h4 class="modal-title">Modifier Cv</h4>
+          <button type="button" class="close" data-bs-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form *ngIf="selectedCv" (ngSubmit)="updateCv(selectedCv)">
+            <div class="row">
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
+                  <label for="title">Titre:</label>
+                  <input
+                  class="form-control"
+                    type="text"
+                    [(ngModel)]="selectedCv.title"
+                    name="title"
+                  />
+                </div>
+              </div>
+            
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
+                  <label for="phone-number" class="form-label">Tjm</label>
+                  <input class="form-control" [(ngModel)]="selectedCv.tjm" name="tjm" />
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-6">
+                <div class="mb-3">
+                  <label for="niveau" class="form-label">Niveau</label>
+                  <select
+                    [(ngModel)]="selectedCv.niveau"
+                    name="niveau"
+                    class="form-control"
+                    id="niveau"
+                  >
+                    <option [value]="null">Sélectionnez un niveau</option>
+                    <option [value]="'Débutant'">Débutant</option>
+                    <option [value]="'Sénior'">Sénior</option>
+                    <option [value]="'Expert'">Expert</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-6">
+                <div class="mb-3">
+                  <label for="english_level" class="form-label">Niveau Anglais</label>
+                  <select
+                    [(ngModel)]="selectedCv.english_level"
+                    name="english_level"
+                    class="form-control"
+                    id="english_level"
+                  >
+                    <option value="">Sélectionnez un niveau</option>
+                    <option value="N1">N1 - Débutant</option>
+                    <option value="N2">N2 - Élémentaire</option>
+                    <option value="N3">N3 - Intermédiaire</option>
+                    <option value="N4">N4 - Intermédiaire supérieur</option>
+                    <option value="N5">N5 - Avancé</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-6">
+                <div class="mb-3">
+                  <label for="french_level" class="form-label">Niveau Français</label>
+                  <select
+                    [(ngModel)]="selectedCv.french_level"
+                    name="french_level"
+                    class="form-control"
+                    id="french_level"
+                  >
+                    <option value="">Sélectionnez un niveau</option>
+                    <option value="N1">N1 - Débutant</option>
+                    <option value="N2">N2 - Élémentaire</option>
+                    <option value="N3">N3 - Intermédiaire</option>
+                    <option value="N4">N4 - Intermédiaire supérieur</option>
+                    <option value="N5">N5 - Avancé</option>
+                  </select>
+                </div>
+              </div> 
+              <div class="col-md-12">
+                <div class="input-block">
+                  <label for="description">Description:</label>
+                  <textarea
+                  class="form-control"
+                    [(ngModel)]="selectedCv.description"
+                    name="description"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div *ngFor="let skill of selectedCv.skills; let i = index" class="row">
+              <div class="col-md-12">
+                <h4>Compétence</h4>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
+                  <label for="skillName{{i}}" class="form-label">Compétences</label>
+                  <select class="form-control" [(ngModel)]="skill.id" name="skillName{{i}}">
+                    <option value="">Sélectionnez une compétence</option>
+                    <option *ngFor="let skillItem of skillsList" [value]="skillItem.id" [selected]="skillItem.id === skill.id">
+                      {{ skillItem.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="input-block">
+                  <label for="nbrMonth{{i}}" class="focus-label">Nombre de mois</label>
+                  <input type="number" class="form-control" [(ngModel)]="skill.pivot.nbrmonth" name="nbrMonth{{i}}">
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="input-block">
+                  <label for="isPrincipal{{i}}" class="form-label">Principale</label><br>
+                  <input type="checkbox" class="form-check-input" [(ngModel)]="skill.pivot.isprincipal" name="isPrincipal{{i}}">
+                </div>
+              </div>
+            </div>
+            
+            <div *ngFor="let edu of selectedCv.educations; let i = index" class="row" >
+              <div class="col-md-12">
+                <h4>Education</h4>
+              </div>
+              
+                <div class="col-md-6 col-lg-6">
+                  <div class="input-block">
+                    <label for="diplome" class="focus-label"
+                      >Diplome</label
+                    >
+                    <input [(ngModel)]="edu.diplome" name="diplome{{i}}" class="form-control" type="text">
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <div class="input-block">
+                    <label for="école" class="focus-label"
+                      >école</label
+                    >
+                    <input [ngModel]="edu['école']" (ngModelChange)="edu['école']=$event" name="école{{i}}" class="form-control" type="text">
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <div class="input-block">
+                    <label for="startdate" class="focus-label"
+                      >Date Début</label
+                    >
+                    <input [(ngModel)]="edu.startdate" name="startdate{{i}}" class="form-control" type="date">
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                  <div class="input-block">
+                    <label for="enddate" class="focus-label"
+                      >Date Fin</label
+                    >
+                    <input [(ngModel)]="edu.enddate" name="enddate{{i}}" class="form-control" type="date">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-block">
+                    <label for="description" class="focus-label"
+                    >description</label
+                  >
+                  <textarea [(ngModel)]="edu.description" name="description{{i}}" class="form-control"></textarea>
+                    
+                   
+                  </div>
+                </div>
+                
+              
+            </div>
+          
+            
+            
+            <div *ngFor="let exp of selectedCv.experiences; let i = index" class="row">
+              <div class="col-md-12">
+                <h4>Expérience</h4>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
+                  <label for="title{{i}}" class="focus-label">Titre</label>
+                  <input type="text" [(ngModel)]="exp.title" name="title{{i}}" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
+                  <label for="entreprisename{{i}}" class="focus-label">Nom de l'entreprise</label>
+                  <input type="text" [(ngModel)]="exp.entreprisename" name="entreprisename{{i}}" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
+                  <label for="startdate{{i}}" class="focus-label">Date de début</label>
+                  <input type="date" [(ngModel)]="exp.startdate" name="startdate{{i}}" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="input-block">
+                  <label for="enddate{{i}}" class="focus-label">Date de fin</label>
+                  <input type="date" [(ngModel)]="exp.enddate" name="enddate{{i}}" class="form-control" />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-block">
+                  <label for="description{{i}}" class="focus-label">Description</label>
+                  <textarea type="text" [(ngModel)]="exp.description" name="description{{i}}" class="form-control" ></textarea>
+                </div>
+              </div>
+            </div>
+            
+
+
+            <button type="submit" class="btn btn-primary mt-7 w-100 btn-lg login-btn d-flex align-items-center justify-content-center">Mettre à jour</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

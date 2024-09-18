@@ -1,0 +1,266 @@
+<!-- Home Banner -->
+<!-- Home Banner -->
+<section class="section home-banner row-middle">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 col-lg-7">
+        <div  data-aos="fade-up" data-aos-duration="3000">
+          <div>
+           
+        </div>
+          <h1>La simplicité et l'efficacité du recrutement de<span class="orange-text"><br> Développeurs</span></h1>
+          <p>Construiser votre équipe avec les experts Devfactory.</p>
+          <ul class="nav header-navbar-rht reg-head">
+            <a [routerLink]="['/employer/developer']" class="reg-btn">Trouvez vos talents</a>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-5">
+        <div class="banner-img aos" data-aos="zoom-in" data-aos-duration="3000">
+          <img src="assets/img/banner-img.svg" class="img-fluid" alt="banner">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- /Home Banner -->
+<section class="section developer mt-neg-20">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-md-12 col-sm-12 col-12">
+        <div class="section-header aos" data-aos="fade-up">
+          <h2 class="header-title" style="text-align: center;">Rencontrez vos développeurs en quelques clics</h2>
+          <p  style="text-align: center;">Rencontrez les développeurs experts dont vous avez besoin</p>
+        </div>
+      </div>
+    </div>
+    <div id="developers-slider">
+      <ng-container *ngIf="clinicsslides.length <= 3; else carousel">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let slide of clinicsslides">
+            <div class="freelance-widget">
+              <div class="freelance-content">
+                <div class="freelance-img">
+                  <a [routerLink]="routes.freelancer_developer_profile">
+                    <img [src]="slide.img" alt="User Image" />
+                  </a>
+                </div>
+                <div class="freelance-info">
+                  <h3>
+                    <a [routerLink]="routes.freelancer_developer_profile">{{ slide.name }}</a>
+                  </h3>
+                  <div class="freelance-specific">{{slide.niveau}}</div>
+                  <div class="freelance-tags">
+                    <a href="javascript:void(0);" *ngFor="let skill of slide.skills">
+                      <span class="badge badge-pill badge-design">{{ skill.name }}</span>
+
+                    </a>
+                  </div>
+                  <div class="freelance-blk-location">
+                    <div class="freelancers-price">
+                      {{ slide.subscriptionPrice }} €
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-hover">
+                <a [routerLink]="['/employer/developer-details', slide.id]" class="btn-cart" tabindex="-1">Voir le profil</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #carousel>
+        <owl-carousel-o [options]="customOptions" class="developers-slider owl-theme">
+          <ng-container *ngFor="let slide of clinicsslides">
+            <ng-template carouselSlide>
+              <div class="freelance-widget">
+                <div class="freelance-content">
+                  <div class="freelance-img">
+                    <a [routerLink]="routes.freelancer_developer_profile">
+                      <img [src]="slide.img" alt="User Image" />
+                    </a>
+                  </div>
+                  <div class="freelance-info">
+                    <h3>
+                      <a [routerLink]="routes.freelancer_developer_profile">{{ slide.name }}</a>
+                    </h3>
+                    <div class="freelance-specific">{{slide.niveau}}</div>
+                    <div class="freelance-tags">
+                      <a href="javascript:void(0);" *ngFor="let skill of slide.skills">
+                        <span class="badge badge-pill badge-design">{{ skill.name }}</span>
+
+                      </a>
+                    </div>
+                    <div class="freelance-blk-location">
+                      <div class="freelancers-price">
+                        {{ slide.subscriptionPrice }} €
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-hover">
+                  <a [routerLink]="routes.freelancer_developer_profile" class="btn-cart" tabindex="-1">Voir le profil</a>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </ng-template>
+    </div>
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="text-center more-project aos aos-init aos-animate" data-aos="fade-up">
+          <a [routerLink]="['/employer/developer']" class="btn btn-primary">Voir plus de développeurs<i class="feather icon-arrow-right ms-2"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Our Feature -->
+<section class="section review" id="entreprises" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="work-set-image">
+          <div class="work-set">
+            <div class="recent-pro-img aos" data-aos="zoom-in" data-aos-duration="1000">
+              <img src="assets/img/image-gauche.jpg"  alt="Img" class="img-fluid "  >
+            </div>
+          </div>
+          <div class="work-sets">
+           <div  class="recent-pro-img">
+              <img src="assets/img/image-droite-haut.jpg"  alt="Img" class="img-fluid aos" data-aos="zoom-in" data-aos-duration="2000">
+              <img src="assets/img/image-droite-bas.jpg"  alt="Img" class="img-fluid aos" data-aos="zoom-in" data-aos-duration="2500">
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-lg-6">
+        <div class="aos " data-aos="fade-up">
+          <div class="demand-professional">
+            <h2>Fournissez à vos développeurs les outils nécessaires au succès avec no bureaux équipés.</h2>
+            <p>On propose un environnement professionnel et productif pour garantir la réussite de vos missions informatiques. </p>
+          </div>
+          <div class="demand-post-job">
+            <div class="demand-post-img">
+              <img src="assets/img/5614412_computer_desk_furniture_interior_work_space_icon.svg" alt="Img" class="img-fluid" style="color: #E87B5A;">
+            </div>
+            <div class="demand-content">
+              <h6>Postes de travail</h6>
+              <p>Spacieux offrant un environnement privé et équipé de plusieurs écrans, permettant aux développeurs de travailler efficacement et confortablement.</p>
+            </div>
+          </div>
+          <div class="demand-post-job">
+            <div class="demand-post-img">
+              <img src="assets/img/8665571_laptop_code_icon (1).svg" alt="Img" class="img-fluid" style="color: #E87B5A;">
+            </div>
+            <div class="demand-content">
+              <h6>Des ordinateurs</h6>
+              <p>Performants équipé des meilleurs logiciels pour vos développeurs.</p>
+            </div>
+          </div>
+          <div class="demand-post-job">
+            <div class="demand-post-img">
+              <img src="assets/img/3994418_internet_network_signal_wifi_wireless_icon.svg" alt="Img" class="img-fluid" style="color: #E87B5A;">
+            </div>
+            <div class="demand-content">
+              <h6>Connexion internet</h6>
+              <p>Rapide et fiable, assurant une fluidité et une stabilité optimale..</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /Our Feature -->			
+
+
+
+
+
+<section class="section job-register" >
+  <div class="container">				
+    <div class="row">
+      <div class="col-12">
+        <div class="register-job-blk">
+          <div class="job-content-blk aos" data-aos="fade-up">
+            <h2>Ensemble vers des résultats avantageux.</h2>
+            <p>Nous vous accompagnons tout au long de vos projets afin d'améliorer votre résultat.</p>
+            
+            
+            <a [routerLink]="['/pages/locaux']" class="btn all-btn">Renforcez la réussite</a>
+
+          
+          </div>
+          <div class="mt-0 see-all aos opportunity" data-aos="zoom-in"> 
+            <img src="assets/img/job1.png" alt="img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- / Review -->
+
+  <section class="section review-five" style="height: 500px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-12 mx-auto">
+          <div class="section-header text-center aos" data-aos="fade-up">
+            <h2 class="header-title">Pourquoi nous choisir?</h2>
+          
+          </div>
+        </div>
+      </div>
+      <div class="offset-xl-1 col-xl-10">
+        <div class="slid-review-group">
+          <ngx-slick-carousel class="slider say-about slider-for aos" #slickModal="slick-carousel"
+            [config]="slideConfig">
+            <div ngxSlickItem *ngFor=" let item of images">
+              <div class="testimonial-all d-flex justify-content-center">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="img-reviews">
+                      <div class="review-quote">
+                        <img src="{{item.img}}" alt="">
+                      </div>
+                      <img src="{{item.img1}}" alt="">
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="testimonial-two-head ">
+                      <h3>{{item.name}}</h3>
+                      <span>{{item.domain}}</span>
+                      <p>{{item.para}} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ngx-slick-carousel>
+          <ngx-slick-carousel #slickModal="slick-carousel" class=" slider client-img slider-nav aos " style="margin-bottom: 70px"
+					[config]="slideConfig2">
+					<div ngxSlickItem *ngFor=" let item of images">
+						<div class="testimonial-thumb">
+							<img src="{{item.img1}}" alt="">
+						</div>
+					</div>
+				</ngx-slick-carousel>
+        </div>
+      </div>
+    </div>
+  </section>

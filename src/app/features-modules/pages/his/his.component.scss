@@ -1,0 +1,24 @@
+.collapse {
+    text-align: justify; /* Justifie le texte à l'intérieur de la classe collapse */
+}
+.image-text-container {
+    display: flex;
+    align-items: center; /* Centrer verticalement les éléments */
+}
+
+.custom-image {
+    width: 600px; /* Ajuster la largeur de l'image selon vos besoins */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+    margin-right: 20px; /* Ajouter un espace entre l'image et le texte */
+}
+.image-text-container {
+    display: flex;
+    align-items: center; /* Centrer verticalement les éléments */
+    justify-content: space-between; /* Espace équitablement les éléments sur la ligne */
+    margin-bottom: 20px; /* Ajoute une marge en bas pour créer un espace */
+}
+
+.custom-image {
+    width: 600px; /* Ajuster la largeur de l'image selon vos besoins */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+}

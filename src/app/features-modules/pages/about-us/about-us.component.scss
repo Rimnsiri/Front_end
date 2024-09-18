@@ -1,0 +1,515 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4; /* Adjust to the color of the form's background in the image */
+}
+
+.contact-form {
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+   
+    margin: 40px auto;
+    font-size: 14px;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    color: #333; /* Adjust to match the color in the image */
+    margin-bottom: 10px;
+}
+
+.contact-form p {
+    color: #666; /* Adjust to match the color in the image */
+    margin-bottom: 20px;
+}
+
+/* Form field styles */
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: .5rem;
+    color: #333;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Adjust to match the border color in the image */
+    border-radius: 4px;
+}
+
+/* Input group for the phone number field */
+.input-group {
+    display: flex;
+}
+
+.input-group .country-code {
+    flex: 0 0 20%;
+}
+
+.input-group .form-control {
+    flex: 1;
+    margin-left: 10px;
+}
+
+/* Toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Submit button styles */
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #007bff; /* Adjust to match the button color in the image */
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Required field asterisk color */
+.container1 {
+    display: flex;
+    flex-direction: row;
+ 
+  }
+  .content {
+    text-align: center; 
+    margin-top: 0px !important;
+    margin-left: 40px !important; 
+}
+
+
+  .content p {
+    text-align: left; /* Aligner le texte à gauche à l'intérieur de la div */
+    margin: 0 auto 0 50px;/* Centrer horizontalement la div */
+    max-width: 550px; /* Largeur maximale pour éviter l'élargissement excessif du texte sur les écrans larges */
+  } 
+ 
+  
+  .contact-form {
+    width: 50%; /* .contact-form prendra maintenant 60% de l'espace disponible */
+    padding: 20px;
+  }
+  
+  
+  
+  .header {
+    color: #b02a37;
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .content p {
+    font-size: 18px;
+    color: #575757;
+    line-height: 1.5;
+    text-align: center;
+   
+}
+
+
+
+.dev{
+    font-weight: bold;
+ 
+}
+
+.content {
+  margin-left: 45px; 
+}
+
+
+  .title1 {
+    text-align: center;
+    font-size: 42px; 
+    color: #efa77b;
+    font-family:serif;
+    font-weight: bold;
+    margin-left: 45px;
+
+  }
+  .title2 {
+    text-align: center;
+    font-size:40px; 
+    color:  #e75e30;
+    font-family:serif;
+     margin-bottom: -30px; /* Réduire la marge inférieure du titre */
+     margin-left: 45px;
+    
+  } 
+ 
+  .btn {
+    width: auto; /* Définir la largeur automatique en fonction de la longueur du texte */
+}
+
+.custom-select{
+    height: 50px;
+    border: 0.1px solid rgb(219, 219, 219);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.bouton-switch {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  width: 40px;
+  height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: rgb(221, 219, 219); 
+  position: relative;
+  border: 0.5px solid orangered;
+  position: relative;
+}
+
+.bouton-switch__texte {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.bouton-switch__interrupteur {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 0; 
+  transform: translate(-50%, -50%); 
+  border: 0.5px solid orangered;
+  position: absolute;
+  margin-left: 8px;
+}
+
+.bouton-switch:hover {
+  border-color: orangered;
+}
+
+.bouton-switch.actif {
+  
+  background-color: orangered;
+}
+
+.bouton-switch.actif .bouton-switch__interrupteur {
+  left: 60%; 
+  background-color: white;
+}
+/* Media query pour les écrans de moins de 768px */
+@media (max-width: 768px) {
+  .container1 {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .contact-form {
+      order: -1; /* Place le formulaire en premier */
+  }
+
+  .content {
+      order: 1; /* Garde le texte après le formulaire */
+  }
+}
+@media (max-width: 768px) {
+  .g-recaptcha {
+      transform: scale(0.77); /* Ajustez le niveau de scale selon le besoin */
+      transform-origin: left top; /* Ajustez l'origine de la transformation si nécessaire */
+      -webkit-transform: scale(0.77); /* Pour la compatibilité avec Safari */
+      -webkit-transform-origin: left top;
+      margin: 0 auto; /* Centrer le reCAPTCHA s'il est devenu plus petit que son conteneur */
+  }
+}
+/* Media query pour les écrans de moins de 768px */
+@media (max-width: 768px) {
+  /* Conteneur du reCAPTCHA */
+  #rc-anchor-container {
+      transform: scale(0.9); /* Réduit le widget de reCAPTCHA */
+      transform-origin: left top; /* Ajuste le point d'origine de la transformation pour le garder en haut à gauche */
+      margin: 0 auto; /* Centrer dans le formulaire si nécessaire */
+  }
+}
+/* styles.css (or your component's CSS file) */
+
+/* Define a CSS class to make the form width 100% */
+.full-width-form {
+  width: 100%;
+}
+
+/* Apply this class to the contact-form div on mobile screens */
+@media only screen and (max-width: 768px) {
+  .contact-form {
+      display: flex;
+      justify-content: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px; /* Optional: Add padding for better readability */
+      margin-left: 0; /* Reset margin-left for mobile */
+      margin-right: 50px;
+  }
+
+  /* Optionally, you can adjust font sizes for better readability on small screens */
+  .title1, .title2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+  }
+
+  .dev {
+      font-size: 1rem;
+      margin-bottom: 20px;
+  }
+}
+
+/* Apply styles for desktop */
+@media only screen and (min-width: 200px) {
+  .content {
+      margin-left:10px; 
+      margin-right: 50px;
+  }
+}
+.content-wrapper {
+  float: right;
+  width: 85%; /* Vous pouvez ajuster la largeur selon le besoin */
+}
+.reg-btn {
+  width: 220px;
+height: 40px;
+display: inline-block;
+border-radius: 5px;
+border-color: transparent;
+text-transform: capitalize;
+background: transparent;
+border: 1px solid #E65425;
+color: #E65425;
+padding: 9px 20px;
+font-weight: 700;
+transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+-ms-transition: all 0.5s ease;
+-webkit-transition: all 0.5s ease;
+text-align: center;
+  }
+  
+  .reg-btn:hover {
+    background: #E65425;
+    color: #fff;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+  }
+  /* Appliquez des styles spécifiques au formulaire de contact pour les grands écrans */
+@media only screen and (min-width: 1200px) {
+  .contact-form {
+      margin-left: 60px; /* Elimine l'espace entre le formulaire et le texte sur les écrans plus grands */
+  }
+}
+.contact-form {
+  max-width: 600px;
+  background: #fff;
+  padding: 20px;
+  margin: 40px auto;
+  font-size: 14px;
+  width: 100%; /* Modifier la largeur à 100% pour remplir l'espace disponible */
+}
+
+
+
+.container {
+
+  justify-content: space-between; /* Distribue l'espace entre les éléments */
+}
+
+.content-wrapper, .contact-form {
+  flex: 1; /* Les deux sections prendront autant d'espace que possible */
+  margin: 0; /* Supprimer toutes les marges pour éviter les espaces supplémentaires */
+}
+.container {
+  max-width: 2000px; /* Définissez la largeur maximale que vous souhaitez */
+  margin: 0 auto; /* Centrez le conteneur horizontalement */
+}
+@media screen and (min-width: 1600px) {
+  .container1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important; /* Ajoute de l'espace équitablement entre les éléments enfants */
+    width: 80%; /* Assurez-vous que le conteneur s'étend à toute la largeur */
+  }
+
+  .content, .contact-form {
+    width: 50%; /* Ajuster la largeur si nécessaire */
+    box-sizing: border-box; /* S'assurer que padding et border sont inclus dans la largeur */
+  }
+
+  .content {
+    text-align: center;
+    margin-top: 0 !important;
+    margin-left: auto; /* Ajuster pour centrer le .content si nécessaire */
+    margin-right: auto; /* Ajuster pour centrer le .content si nécessaire */
+  }
+
+  .content p {
+    text-align: left;
+    margin: 0 auto 0 50px;
+    max-width: 550px;
+  }
+
+  .contact-form {
+    padding: 50px;
+    padding-left: 0; 
+  }
+
+  .header {
+    color: #b02a37;
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .content p {
+    font-size: 18px;
+    color: #575757;
+    line-height: 1.5;
+    text-align: center;
+  }
+  
+  
+
+  .title1, .title2 {
+    margin-left: auto; /* Centrer les titres */
+    margin-right: auto; /* Centrer les titres */
+  }
+
+  .title2 {
+    margin-bottom: -30px;
+  }
+
+  .btn {
+    width: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1400px) {
+  .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    margin-left: 70px;
+  }
+}
+
+
+
+.container1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .container1 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .content, .contact-form {
+    width: 100%;
+    max-width: 600px; /* Ajuster selon la taille que tu veux */
+    margin: 0 auto;
+  }
+}

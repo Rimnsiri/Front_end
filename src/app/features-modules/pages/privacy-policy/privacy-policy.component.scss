@@ -1,0 +1,12 @@
+ul {
+    list-style-type: none; /* Supprime les puces par défaut */
+    padding-left: 40px; /* Supprime le remplissage à gauche par défaut */
+}
+
+li:before {
+    /* Utilise un point (•) comme symbole */
+    margin-right: 5px; /* Ajoute un espace entre le point et le texte */
+}
+.terms-content {
+    text-align: justify;
+}

@@ -1,0 +1,657 @@
+<!-- Home Banner -->
+<!-- Home Banner -->
+<section class="section home-banner row-middle">
+  <div class="align-right-container" style="padding-right: 10px;">
+    <div class="align-right">
+      <ul class="mb-0 list-inline">
+       <!-- <li class="d-inline" style="padding-right: 20px;"><a [routerLink]="['/auth/register']" class="reg-btn"><img src="assets/img/icon/reg-icon.svg" class="me-1" alt="icon"> S'inscrire</a></li>-->
+        
+      </ul>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 col-lg-7">
+        <div data-aos="fade-up" data-aos-duration="3000">
+          
+          <div>
+
+          </div>
+          
+          <h1>Trouver le parfait<span class="orange-text"><br>Développeur</span></h1>
+          <p>Construire votre équipe avec les experts Devfactory.</p>
+          <form class="form" name="store" id="store" method="post" action="">
+            <div class="form-inner d-flex align-items-center">
+              <div class="input-group custom-background" style="width: 100%">
+                <!-- Ajoutez un style pour définir la largeur à 100% -->
+                <div class="input-group-prepend">
+                  <span class="bg-white input-group-text" style="height: 100%">
+                    <i
+                      class="fa-solid fa-magnifying-glass"
+                      style="font-size: 30px; color: orangered"
+                    ></i>
+                  </span>
+                </div>
+                <div
+                  class="flex-grow-1"
+                  style="margin-right: 10px; margin-left: 3px"
+                >
+                  <!-- Utilisez la classe "flex-grow-1" pour que le div occupe tout l'espace disponible -->
+                  <div>
+                    <ng-multiselect-dropdown
+                    [placeholder]="'Sélectionnez une technologie'"
+                    [settings]="multiselectDropdownSettings"
+                    [data]="technologies"
+                    (onSelect)="onItemSelect($event)"
+                    (onDeSelect)="onItemDeselect($event)"
+                  ></ng-multiselect-dropdown>
+                  </div>
+                </div>
+                <!-- Dans votre template HTML (home.component.html) -->
+                <button
+                  class="btn btn-primary sub-btn"
+                  type="button"
+                  (click)="searchDevelopersBySkills()"
+                  style="height: 100%; border-radius: 5px"
+                >
+                  Recherche
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-5">
+        <div class="banner-img aos" data-aos="zoom-in" data-aos-duration="3000">
+          <img src="assets/img/banner-img.svg" class="img-fluid" alt="banner" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- /Home Banner -->
+<section class="section developer mt-neg-20">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-md-12 col-sm-12 col-12">
+        <div class="section-header aos" data-aos="fade-up">
+          <h2  style="text-align: center;">Développeurs les plus embauchés</h2>
+          <p style="text-align: center;">Travaillez avec des personnes talentueuses au prix le plus abordable</p>
+        </div>
+      </div>
+    </div>
+    <div id="developers-slider">
+      <ng-container *ngIf="clinicsslides.length <= 3; else carousel">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let slide of clinicsslides">
+            <div class="freelance-widget">
+              <div class="freelance-content">
+                <div class="freelance-img">
+                  <a [routerLink]="routes.freelancer_developer_profile">
+                    <img [src]="slide.img" alt="User Image" />
+                  </a>
+                </div>
+                <div class="freelance-info">
+                  <h3>
+                    <a [routerLink]="routes.freelancer_developer_profile">{{ slide.name }}</a>
+                  </h3>
+                  <div class="freelance-specific">{{slide.niveau}}</div>
+                  <div class="freelance-tags">
+                    <a href="javascript:void(0);" *ngFor="let skill of slide.skills">
+                      <span class="badge badge-pill badge-design">{{ skill.name }}</span>
+
+                    </a>
+                  </div>
+                  <div class="freelance-blk-location">
+                    <div class="freelancers-price">
+                      {{ slide.subscriptionPrice }} €
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cart-hover">
+                <a [routerLink]="['/employer/developer-details', slide.id]" class="btn-cart" tabindex="-1">Voir le profil</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #carousel>
+        <owl-carousel-o [options]="customOptions" class="developers-slider owl-theme">
+          <ng-container *ngFor="let slide of clinicsslides">
+            <ng-template carouselSlide>
+              <div class="freelance-widget">
+                <div class="freelance-content">
+                  <div class="freelance-img">
+                    <a [routerLink]="routes.freelancer_developer_profile">
+                      <img [src]="slide.img" alt="User Image" />
+                    </a>
+                  </div>
+                  <div class="freelance-info">
+                    <h3>
+                      <a [routerLink]="routes.freelancer_developer_profile">{{ slide.name }}</a>
+                    </h3>
+                    <div class="freelance-specific">{{slide.niveau}}</div>
+                    <div class="freelance-tags">
+                      <a href="javascript:void(0);" *ngFor="let skill of slide.skills">
+                        <span class="badge badge-pill badge-design">{{ skill.name }}</span>
+
+                      </a>
+                    </div>
+                    <div class="freelance-blk-location">
+                      <div class="freelancers-price">
+                        {{ slide.subscriptionPrice }} €
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="cart-hover">
+                  <a [routerLink]="routes.freelancer_developer_profile" class="btn-cart" tabindex="-1">Voir le profil</a>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </ng-template>
+    </div>
+    
+   
+    <div class="row mt-neg-20">
+      <div class="col-xl-12">
+        <div class="text-center more-project aos aos-init aos-animate" data-aos="fade-up">
+          <a [routerLink]="['/employer/developer']" class="btn btn-primary" >
+            Voir plus de développeurs
+            <i class="feather icon-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+</section>
+
+<section class="section different-categories" id="domaines_expertise">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-md-12 col-sm-12 col-12">
+        <div
+          class="section-header section-header-three section-locate aos"
+          data-aos="fade-up"
+        >
+          <div>
+            <span class="badge title-badge">Stack Populaires</span>
+            <h2 class="header-title">
+              Explorez notre Sélection de Stack Populaires
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+        <a
+          [routerLink]="['/employer/developer']" [queryParams]="{technologies: 'angular,django'}"
+          class="different-categories-blk aos"
+          data-aos="fade-up"
+        >
+          <div class="differ-img">
+            <img
+              src="assets/img/icon/logo_angular_modified.svg"
+              alt="Logo Angular"
+            />
+            <img
+              src="assets/img/icon/django-svgrepo-com.svg"
+              alt="Logo JavaScript"
+            />
+          </div>
+          <div class="differ-content">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6>Angular & Django</h6>
+              <a [routerLink]="['/employer/developer']"
+                ><i class="feather icon-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+
+      <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+        <a
+          [routerLink]="['/employer/developer']" [queryParams]="{technologies:'flask ,vue.Js'}"
+          class="different-categories-blk aos"
+          data-aos="fade-up"
+        >
+          <div class="differ-img">
+            <img src="assets/img/icon/flask-svgrepo-com.svg" alt="Img" />
+            <img src="assets/img/icon/vue-16-svgrepo-com.svg" alt="Img" />
+          </div>
+
+          <div class="differ-content">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6>Flask & Vue.Js</h6>
+              <a [routerLink]="['/employer/developer']"
+                ><i class="feather icon-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+        <a
+          [routerLink]="['/employer/developer']" [queryParams]="{technologies:'python , next.Js'}"
+          class="different-categories-blk aos"
+          data-aos="fade-up"
+        >
+          <div class="differ-img">
+            <img src="assets/img/icon/python-127-svgrepo-com.svg" alt="Img" />
+            <img src="assets/img/icon/logo_next.js.svg" alt="Img" />
+          </div>
+
+          <div class="differ-content">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6>Python & Next.Js</h6>
+              <a [routerLink]="['/employer/developer']"
+                ><i class="feather icon-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+        <a
+          [routerLink]="['/employer/developer']" [queryParams]="{technologies:'.Net , vue.Js'}"
+          class="different-categories-blk aos"
+          data-aos="fade-up"
+        >
+          <div class="differ-img">
+            <img src="assets/img/icon/logo_.net.svg" alt="Img" />
+            <img src="assets/img/icon/vue-16-svgrepo-com.svg" alt="Img" />
+          </div>
+
+          <div class="differ-content">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6>.Net & Vue.Js</h6>
+              <a [routerLink]="['/employer/developer']"
+                ><i class="feather icon-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+        <a
+          [routerLink]="['/employer/developer']" [queryParams]="{technologies:'J2EE , react.Js'}"
+          class="different-categories-blk aos"
+          data-aos="fade-up"
+        >
+          <div class="differ-img">
+            <img src="assets/img/icon/java-svgrepo-com.svg" alt="Img" />
+            <img src="assets/img/icon/Logo_react (2)_modified.svg" alt="Img" />
+          </div>
+
+          <div class="differ-content">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6>J2EE & React.Js</h6>
+              <a [routerLink]="['/employer/developer']"
+                ><i class="feather icon-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+        <a
+          [routerLink]="['/employer/developer']" [queryParams]="{technologies: 'symfony , vue.Js'}"
+          class="different-categories-blk aos"
+          data-aos="fade-up"
+        >
+          <div class="differ-img">
+            <img src="assets/img/icon/symfony-svgrepo-com.svg" alt="Img" />
+            <img src="assets/img/icon/vue-16-svgrepo-com.svg" alt="Img" />
+          </div>
+
+          <div class="differ-content">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6>Symfony & Vue.Js</h6>
+              <a [routerLink]="['/employer/developer']"
+                ><i class="feather icon-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+        <a
+          [routerLink]="['/employer/developer']"  [queryParams]="{technologies: 'java,javascript'}"
+          class="different-categories-blk aos"
+          data-aos="fade-up"
+        >
+          <div class="differ-img">
+            <img src="assets/img/icon/java-svgrepo-com.svg" alt="Img" />
+            <img
+              src="assets/img/icon/logo_javascript (1)_corrected.svg"
+              alt="Img"
+            />
+          </div>
+
+          <div class="differ-content">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6>Java & Javascript</h6>
+              <a [routerLink]="['/employer/developer']"
+                ><i class="feather icon-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6 d-flex">
+        <a
+          [routerLink]="['/employer/developer']" [queryParams]="{technologies:'ruby , Javascript'}"
+          class="different-categories-blk aos"
+          data-aos="fade-up"
+        >
+          <div class="differ-img">
+            <img src="assets/img/icon/ruby-svgrepo-com.svg" alt="Img" />
+            <img
+              src="assets/img/icon/logo_javascript (1)_corrected.svg"
+              alt="Img"
+            />
+          </div>
+
+          <div class="differ-content">
+            <div class="d-flex justify-content-between align-items-center">
+              <h6>Ruby & Javascript</h6>
+              <a [routerLink]="['/employer/developer']"
+                ><i class="feather icon-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Feature -->
+<section class="section review" id="entreprises">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="work-set-image">
+          <div class="work-set">
+            <div
+              class="recent-pro-img aos"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
+              <img
+                src="assets/img/image-gauche.jpg"
+                alt="Img"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="work-sets">
+            <div class="recent-pro-img">
+              <img
+                src="assets/img/image-droite-haut.jpg"
+                alt="Img"
+                class="img-fluid aos"
+                data-aos="zoom-in"
+                data-aos-duration="2000"
+              />
+              <img
+                src="assets/img/image-droite-bas.jpg"
+                alt="Img"
+                class="img-fluid aos"
+                data-aos="zoom-in"
+                data-aos-duration="2500"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="aos" data-aos="fade-up">
+          <div class="demand-professional">
+            <h2>
+              Optimiser l'efficacité de vos projets grâce à nos bureaux équipés
+            </h2>
+            <p>
+              On propose un environnement professionnel et productif pour
+              garantir la réussite de vos missions informatiques.
+            </p>
+          </div>
+          <div class="demand-post-job">
+            <div class="demand-post-img">
+              <img
+                src="assets/img/5614412_computer_desk_furniture_interior_work_space_icon.svg"
+                alt="Img"
+                class="img-fluid"
+                style="color: #e87b5a"
+              />
+            </div>
+            <div class="demand-content">
+              <h6>Postes de travail</h6>
+              <p>
+                Spacieux offrant un environnement privé et équipé de plusieurs
+                écrans, permettant aux développeurs de travailler efficacement
+                et confortablement.
+              </p>
+            </div>
+          </div>
+          <div class="demand-post-job">
+            <div class="demand-post-img">
+              <img
+                src="assets/img/8665571_laptop_code_icon (1).svg"
+                alt="Img"
+                class="img-fluid"
+                style="color: #e87b5a"
+              />
+            </div>
+            <div class="demand-content">
+              <h6>Des ordinateurs</h6>
+              <p>
+                Performants équipé des meilleurs logiciels pour vos
+                développeurs.
+              </p>
+            </div>
+          </div>
+          <div class="demand-post-job">
+            <div class="demand-post-img">
+              <img
+                src="assets/img/3994418_internet_network_signal_wifi_wireless_icon.svg"
+                alt="Img"
+                class="img-fluid"
+                style="color: #e87b5a"
+              />
+            </div>
+            <div class="demand-content">
+              <h6>Connexion internet</h6>
+              <p>
+                Rapide et fiable, assurant une fluidité et une stabilité
+                optimale..
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- n -->
+<section class="faq-section-three" id="faq">
+  <div class="container">
+    <div
+      class="text-center section-header section-header-three aos"
+      data-aos="fade-up"
+    >
+      <span class="badge title-badge">FAQ’S</span>
+      <h2 class="header-title">Réponse aux questions fréquentes</h2>
+    </div>
+    <div class="row" id="accordionExample">
+      <div class="col-lg-6">
+        <div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
+          <h4 class="faq-title">
+            <a
+              class="collapsed"
+              data-bs-toggle="collapse"
+              href="#faqOne"
+              aria-expanded="false"
+            >
+              Quelles sont les distinctions entre un paiement journalier et
+              mensuel?</a
+            >
+          </h4>
+          <div
+            id="faqOne"
+            class="card-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <p>
+              Le paiement journalier et le paiement mensuel sont deux méthodes
+              différentes lorsque vous recrutez un développeur. Fréquence de
+              Paiement : Optez pour la régularité avec le paiement journalier,
+              effectué quotidiennement à la fin de chaque journée de travail. Ou
+              choisissez la stabilité du paiement mensuel, intervenant une fois
+              par mois, généralement à la fin du mois civil. Flexibilité
+              Budgétaire : Le paiement journalier offre une flexibilité
+              budgétaire accrue avec des montants répartis quotidiennement. À
+              l'inverse, le paiement mensuel procure une prévisibilité
+              facilitant la planification budgétaire à plus long terme.
+              Convenance et Préférences : Votre choix entre paiement journalier
+              ou mensuel dépend de vos préférences et des besoins spécifiques de
+              votre entreprise.
+            </p>
+          </div>
+        </div>
+        <div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
+          <h4 class="faq-title">
+            <a
+              class="collapsed"
+              data-bs-toggle="collapse"
+              href="#faqtwo"
+              aria-expanded="false"
+              >Est-ce que la mise en œuvre de cette procédure engendra des frais
+              élevés ?</a
+            >
+          </h4>
+          <div
+            id="faqtwo"
+            class="card-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <p>
+              Le coût de la procédure dépend de divers facteurs tels que la
+              complexité de la tâche, les ressources nécessaires et les tarifs
+              applicables. Il est recommandé de discuter des détails financiers
+              avec un de nos collaborateurs afin d'obtenir une estimation
+              précise des coûts associés à la procédure envisagée.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
+          <h4 class="faq-title">
+            <a
+              class="collapsed"
+              data-bs-toggle="collapse"
+              href="#faqsix"
+              aria-expanded="false"
+              >Comment DevFactory peut-il garantir qu'il sélectionne le
+              développeur idéal pour les besoins de mon entreprise ?</a
+            >
+          </h4>
+          <div
+            id="faqsix"
+            class="card-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <p>
+              Notre garantie repose sur la rigueur de notre processus de
+              recrutement et de sélection. Avant d'initier la recherche et la
+              présentation d'un développeur, notre priorité consiste à bien
+              appréhender les exigences spécifiques de nos clients.
+            </p>
+          </div>
+        </div>
+        <div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
+          <h4 class="faq-title">
+            <a
+              class="collapsed"
+              data-bs-toggle="collapse"
+              href="#faqseven"
+              aria-expanded="false"
+            >
+              Quelle est la durée de travail hebdomadaire pour laquelle je peux
+              engager les développeurs de DevFactory ?</a
+            >
+          </h4>
+          <div
+            id="faqseven"
+            class="card-collapse collapse"
+            data-bs-parent="#accordionExample"
+          >
+            <p>
+              Nous proposons trois forfaits : . "Temps plein" (40 heures par
+              semaine) . "Temps partiel" (20 heures par semaine) .
+              "Pay-as-you-go". Pour attirer les meilleurs développeurs chez
+              DevFactory, l'engagement minimum que nous proposons est de WWWWWW
+              heures par mois. Si vous souhaitez embaucher un développeur
+              DevFactory pour un nombre d'heures différent (par exemple, 32
+              heures par semaine, seulement 2 semaines par mois), il vous suffit
+              de le demander, et nous nous ferons un plaisir de l'organiser.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12">
+        <div
+          class="text-center more-project aos aos-init aos-animate"
+          data-aos="fade-up"
+        >
+          <a [routerLink]="['/pages/faq']" class="btn btn-primary"
+            >Voir plus des questions<i class="feather icon-arrow-right ms-2"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section job-register">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="register-job-blk">
+          <div class="job-content-blk aos" data-aos="fade-up">
+            <h2>Trouver un talentueux développeur!</h2>
+            <p>
+              Rejoignez-nous ! Plusieurs entreprises dynamiques nous ont déjà
+              choisi afin de bénéficier de services numériques,de pointe et
+              trouver des solutions innovantes.
+            </p>
+
+            <a [routerLink]="['/employer/developer']" class="btn all-btn"
+              >Voir les profils</a
+            >
+          </div>
+          <div class="mt-0 see-all aos opportunity" data-aos="zoom-in">
+            <img src="assets/img/job1.png" alt="img" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

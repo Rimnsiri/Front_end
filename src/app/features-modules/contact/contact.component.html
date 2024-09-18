@@ -1,0 +1,87 @@
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+	<div class="container">
+		<div class="row align-items-center inner-banner">
+			<div class="col-md-12 col-12 text-center">
+				<div class="breadcrumb-list">
+					<h3>Contact</h3>
+					<nav aria-label="breadcrumb" class="page-breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a [routerLink] = "routes.home"> Home</a></li>
+							<li class="breadcrumb-item" aria-current="page">Contact</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Breadcrumb -->
+<div class="container1">
+    <div class="content"><br>
+        <br>
+        <br>
+       
+       
+        <h1 class="title1">Parlons de votre</h1>
+        <h1 class="title2">projet plus en détail.</h1>
+      <div class="content">
+        <p class="dev">Notre engagement est de fournir des solutions personnalisées et innovantes qui s'adaptent parfaitement à chaque secteur d'activité.</p><br><br>
+        <p>Notre équipe se compose de professionnels engagés, alliant compétences de développement, conception et gestion de projet. Notre passion réside dans la création de solutions personnalisées qui non seulement répondent, mais dépassent les attentes de nos clients. Nous croyons en une collaboration étroite avec nos clients, mettant en œuvre leurs idées et leur vision pour concrétiser un produit final exceptionnel. Forts de notre expérience et de notre engagement envers l'excellence, nous vous assurons une satisfaction totale quant aux résultats de votre projet.</p>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="card budget-widget">
+        <h6>Formulaire de contact</h6>
+        <form >
+          <div class="form-group">
+            <label for="name">Nom complet <span style="color: orangered;">*</span></label>
+            <input type="text" id="name" formControlName="name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="email">Adresse mail <span style="color: orangered;">*</span></label>
+            <input type="email" id="email" formControlName="email" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="phone">Numéro de téléphone (facultatif)</label>
+            <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                    <select id="countryCode" class="custom-select">
+                        <option value="+33">FR (+33)</option>
+                        <option value="+216">TN (+216)</option>
+                        
+                    </select>
+                </div>
+                <input type="tel" id="phoneNumber" formControlName="phone" class="form-control">
+            </div>
+        </div>
+        
+        
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" formControlName="message" class="form-control"></textarea>
+          </div>
+         
+          <div class="form-group text-center">
+            <div class="mx-auto" style="max-width: 304px;">
+            </div>
+          </div>
+          
+          
+        <div class="form-group" style="display: flex; align-items: center;">
+            <button type="button" class="bouton-switch" (click)="toggle()" [class.actif]="estActif" style="margin-right: 5px;">
+                <span class="bouton-switch__interrupteur"></span>
+            </button>
+            <label for="acceptTerms" style="margin-left: 5px; margin-top: 7px;">J'accepte les conditions générales</label>
+        </div>
+        
+          <div class="form-group text-center">
+            <input type="submit" value="Demandé à être contacté" class="btn btn-primary">
+        </div>
+        
+        </form>
+      </div>
+      
+
+			
+<!-- /Page Content -->

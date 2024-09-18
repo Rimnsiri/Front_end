@@ -1,0 +1,64 @@
+.collapse {
+    text-align: justify; /* Justifie le texte à l'intérieur de la classe collapse */
+}
+.image-text-container {
+    display: flex;
+    align-items: center; /* Centrer verticalement les éléments */
+}
+
+.custom-image {
+    width: 600px; /* Ajuster la largeur de l'image selon vos besoins */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+    margin-right: 20px; /* Ajouter un espace entre l'image et le texte */
+}
+.image-text-container {
+    display: flex;
+    align-items: center; /* Centrer verticalement les éléments */
+    justify-content: space-between; /* Espace équitablement les éléments sur la ligne */
+    margin-bottom: 20px; /* Ajoute une marge en bas pour créer un espace */
+}
+
+.custom-image {
+    width: 600px; /* Ajuster la largeur de l'image selon vos besoins */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+}
+.sign-in-btn .btn-primary{
+ color:#E65425;
+ background:#FFFFFF;
+border:#FFFFFF;
+font-weight:600;
+}
+.sign-in-btn .btn-primary:hover{
+    background-color: #161c2d;
+color: #FFFFFF;
+    border: #FFFFFF;
+}
+
+.work-set-image img {
+    display: flex;
+    flex-direction: column;
+    height: 440px;
+    width: 600px; /* Exemple de hauteur fixe, ajustez selon vos besoins */
+    gap: -10px; /* Espace entre les images, ajustez selon vos besoins */
+  }
+
+
+
+  .row {
+    margin-left: 30px; 
+    margin-right: 30px; 
+  }
+  
+  @media (min-width: 768px) {
+    .row {
+      margin-left: 50px;  
+      margin-right: 50px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .row {
+      margin-left: 80px;  
+      margin-right: 80px;
+    }
+  }

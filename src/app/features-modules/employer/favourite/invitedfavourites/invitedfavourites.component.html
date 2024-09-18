@@ -1,0 +1,93 @@
+<!-- project list -->
+<div class="my-projects-view favourite-group" style="margin-top: 130px; width: 1008px;">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="page-header">
+				<div class="row">
+					<div class="col">
+						<h3 class="page-title">Ajouter Note</h3>
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a [routerLink]="'/employer/dashboard'">Home</a></li>
+							<li class="breadcrumb-item active">Ajouter Note</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="my-projects-list ongoing-projects">
+				<div class="row">
+					<div class="col-xl-9 flex-wrap">
+						<div class="freelancer-proposals proposal-ongoing mb-0">
+							<div class="project-proposals align-items-center freelancer">
+								<div class="proposal-info">
+									<div class="proposals-details">
+										<h3 class="proposals-title">{{ response.testName }}</h3>
+										<div class="d-flex justify-content-between align-items-start">
+											<div class="employee-project-card">
+												
+												<span class="tech-name-badge" >{{ response.testcategori }}</span>
+												<ul>
+													
+													<li>
+														<div class="proposal-job-type">
+															<h4 class="title-info">niveau</h4>
+															<h3>{{ response.testniveau }} </h3>
+														</div>
+													</li>
+													<li>
+														<div class="proposal-job-type">
+															<h4 class="title-info">Duré</h4>
+															<h3 class="flag-icon"><i class="fa-regular fa-clock ml-3" height="13" ></i>  {{response.temps}} min</h3>
+														</div>
+													</li>
+													<li>
+														<div class="proposal-job-type">
+															<h4 class="title-info">Catégorie</h4>
+															<h3>{{response.testcategori}}</h3>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<ul class="employee-project">
+												<li>
+													<div class="project-action text-center">
+														<input type="number" [(ngModel)]="note" class="form-control mt-2" min="0" max="20" />
+														<button (click)="submitNote()" class="projects-btn mt-2">Ajouter Note</button>
+														<span *ngIf="response.note">
+														  <i class="fa-solid fa-star"></i>
+														  <i class="fa-solid fa-star"></i>
+														  <i class="fa-solid fa-star"></i>
+														  <i class="fa-solid fa-star"></i>
+														  <i class="fa-solid fa-star"></i>
+														  {{ response.note }}
+														</span>
+													  </div>
+												</li>
+											</ul>
+										</div>
+										<div class="mt-7">
+											<h3 class="proposals-title">Les Réponse</h3>
+										    <span class="tech-name-badge" >{{ response.reponse }}</span>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 d-flex flex-wrap">
+						<div class="projects-card flex-fill">
+							<div class="card-body p-2">
+								<div class="prj-proposal-count text-center hired">
+									<h3>Hired</h3>
+									<img [src]="response.devPhoto" alt="Img" class="img-fluid">
+									<p class="mb-0">{{response.devName}} {{response.devFirstName}} </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>								
+</div>
+<!-- project list -->

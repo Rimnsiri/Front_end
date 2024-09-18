@@ -1,0 +1,57 @@
+<!-- project list -->
+<div class="my-projects-view favourite-group" style="margin-top: 130px;  width: 1008px;">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="page-header">
+				<div class="row">
+					<div class="col">
+						<h3 class="page-title">List des réponse</h3>
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item"><a [routerLink]="'/employer/dashboard'">Home</a></li>
+							<li class="breadcrumb-item active">Développeur Favoris</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+					   <tr>
+							<th>Id</th>
+							<th>Développeur</th>
+							<th>Nom</th>
+							<th>Catégorie</th>
+							<th>Niveau</th>
+							<th>Temps début </th>
+							<th>Temps fin</th>
+							<th>Note</th>
+							<th>Action</th>
+					   </tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let response of responses">
+							<td>{{response.id}}</td>
+							<td>
+								<div class="table-avatar user-profile">
+									<a [routerLink]="'/admin/profile'"><img class="avatar-img rounded-circle " [src]="response.devPhoto" alt="User Image"></a>
+									
+								</div>
+							</td>
+							<td>{{ response.testName }}</td>
+							<td>{{ response.testcategori }}</td>
+							<td>{{ response.testniveau }}</td>
+							<td class="text-success">{{ response.start_time }}</td>
+							<td class="text-danger">{{ response.end_time }}</td>
+							<td><span class="bade success-bg-light">{{response.note}}</span></td>
+							<td><button class="btn btn-sm btn-success me-2" (click)="navigateToAddNote(response.id)"><i class="fa-solid fa-marker"></i></button></td>
+						</tr>
+					
+					</tbody>
+				</table>
+			</div>
+			  
+		</div>
+	</div>		
+						
+</div>
+<!-- project list -->

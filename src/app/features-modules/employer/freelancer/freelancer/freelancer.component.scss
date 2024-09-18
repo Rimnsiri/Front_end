@@ -1,0 +1,388 @@
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+   
+   
+  
+    /* Dans votre fichier CSS */
+
+
+.transparent-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  background: transparent !important; /* Utilisez !important */
+}
+
+
+
+
+
+.custom-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 3px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 12px; /* Ajustez la taille de la police selon vos préférences */
+  font-weight: bolder; /* Ajoutez un peu de graisse au texte */
+  text-decoration: none;
+}
+
+.custom-badge span {
+  display: block;
+}
+
+.cart-hover {
+  border-radius: 5px; /* Ajustez la valeur pour arrondir davantage ou moins les coins */
+}
+
+
+
+
+
+
+
+.custom-check-container {
+  width: 100%;
+}
+
+.custom_check {
+  width: 100%;
+}
+.custom-technology {
+  margin-bottom: 5px; /* Marge en bas entre les lignes */
+  font-size: 14px; /* Taille de la police */
+  color: #333; /* Couleur du texte */
+  border: 1px solid #555; /* Bordure autour du texte */
+  padding: 5px; /* Rembourrage à l'intérieur de la bordure */
+  display: block; /* Changer le mode d'affichage pour occuper toute la largeur */
+  border-radius: 100px; /* Coins arrondis de la bordure */
+}
+
+.custom-technology:hover {
+  color: #555; /* Changement de couleur au survol */
+  border-color: #777; /* Changement de couleur de la bordure au survol */
+}
+.search-results {
+  width: 100%; /* Occupe toute la largeur de son conteneur parent (la barre de recherche) */
+  max-width: 600px; /* Ajustez cette valeur selon vos préférences, c'est la largeur maximale de la zone de résultats */
+  background-color: #121111; /* Couleur de fond */
+  border: 1px solid #0c0b0b; /* Bordure autour des résultats */
+  border-radius: 0px; /* Coins arrondis */
+  padding: 10px; /* Espace intérieur autour des résultats */
+  margin-top: 10px; /* Marge en haut pour séparer de la barre de recherche */
+  overflow-y: auto; /* Ajoute une barre de défilement vertical si nécessaire */
+}
+
+/* Ajoutez ces styles pour personnaliser l'apparence de chaque résultat */
+.search-results .result-item {
+  padding: 5px;
+  border-bottom: 1px solid #100f0f;
+}
+
+.search-results {
+    background-color: #f6f3ee; /* Couleur grise pour l'arrière-plan des résultats */
+    padding: 10px; /* Ajoutez du rembourrage pour l'apparence */
+    border: 1px solid #ccc; /* Ajoutez une bordure pour séparer les résultats */
+    margin-top: 10px; /* Ajoutez une marge en haut pour l'espace entre la zone de recherche et les résultats */
+}
+
+
+.result-item {
+  margin-bottom: 5px; 
+  background-color: white;/* Ajoutez une marge en bas pour l'espace entre les éléments */
+}
+.non-matching {
+  background-color: #e5e5e5; /* Couleur de fond pour les résultats non correspondants */
+}
+
+.delete-icon {
+  font-size: 12px; /* Ajustez la taille selon vos besoins */
+  color: black;
+  cursor: pointer;
+  margin-left: 5px; /* Ajustez la marge selon vos besoins */
+}
+/* Ajoutez cette classe dans votre fichier de style CSS ou SCSS */
+.custom-results-container {
+  margin-top: 10px; /* Ajustez la valeur selon vos besoins */
+}
+
+.custom-check-container {
+  background-color: #f6f3ee;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+.result-item {
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+.non-matching-result {
+  display: inline-block; /* Permet aux éléments d'apparaître sur la même ligne */
+  margin-right: 7px; /* Marge à droite pour l'espace entre les éléments */
+  padding: -20px; /* Ajoutez le rembourrage pour créer l'apparence d'un petit carré */
+  background-color: #f6f3ee; /* Couleur de fond du carré */
+  border-radius: 0px; 
+  font-size: 10px;/* Ajoutez un peu de bord arrondi au carré */
+  line-height: 1;
+  color: #0c0b0b
+}
+/* Ajoutez ces styles à votre fichier CSS pour styliser l'icône de coche */
+.result-item {
+  position: relative;
+}
+
+.check-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #ccc; /* Couleur initiale de l'icône de coche */
+}
+
+
+.check-icon.selected {
+  color: #00f; /* Couleur de l'icône de coche lorsque la technologie est sélectionnée */
+}
+
+.selected-result-container {
+  border: 1px solid #060606;
+  padding: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+  margin-right: 5px; /* Ajoutez une marge à droite pour séparer les rectangles */
+}
+
+/* Ajoutez vos styles ici */
+#technologies .search-container {
+  display: flex;
+  align-items: center;
+}
+
+#technologies .search-icon {
+  margin-right: 10px; /* Ajustez la marge selon vos besoins */
+}
+
+#technologies input[type="search"] {
+  padding-left: 30px; /* Ajustez la marge selon vos besoins */
+}
+
+/* styles.scss (ou styles.css selon votre configuration) */
+
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.slider{
+  height: 5px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+.slider .progress{
+  height: 100%;
+  width: 100px;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+  border-radius: 5px;
+  background: #17A2B8;
+}
+.price-range-filter__range-container{
+  position: relative;
+}
+.price-range-filter__range-container input{
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: 0px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Standard property for compatibility */
+}
+input[type="range"]::-webkit-slider-thumb{
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+input[type="range"]::-moz-range-thumb{
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #17A2B8;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+.price-input{
+  width: 100%;
+  display: flex;
+  margin: 30px 0 35px;
+}
+.price-input .field{
+  display: flex;
+  width: 100%;
+  height: 45px;
+  align-items: center;
+}
+.field input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 19px;
+  margin-left: 12px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #999;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.price-input .separator{
+  width: 130px;
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+/* Ajoutez vos styles personnalisés pour le curseur ici */
+.app {
+  display: flex;
+  flex-direction: row;
+}
+
+.app div {
+  margin-bottom: 10px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+
+
+
+.input-group {
+  display: flex;
+  align-items: center;
+ 
+}
+
+.input-group input {
+  flex-grow: 1;
+  margin-right: 20px; /* Ajoutez une marge entre le champ et le symbole $ */
+  width: 100px; /* Ajustez la largeur selon vos préférences */
+ 
+}
+/* Custom styles for the input boxes */
+.input-group input[type="text"] {
+  width: 55px; /* Largeur ajustable selon vos besoins */
+  height: 25px; /* Hauteur ajustable selon vos besoins */
+  border: 1px solid #716d6d; /* Style et couleur de bordure ajustables */
+  padding: 5px; /* Rembourrage ajustable selon vos besoins */
+  margin-right: 12px; /* Marge ajustable entre l'input et le symbole de la devise */
+  border-radius: 5px !important; /* Rayon de bordure pour les coins arrondis */
+}
+
+
+.currency-symbol {
+  font-size: 16px; /* Adjust the font size of the currency symbol */
+  margin-top: 5px; 
+  margin-left:-10px !important; 
+  margin-right: 25px  !important;/* * Adjust the vertical alignment as needed */
+  
+}
+
+/* Optional: To style the labels */
+label {
+  display: block; /* Display labels as blocks for better alignment */
+  margin-bottom: 5px; /* Adjust the margin between labels and input boxes */
+}
+@import "~@ng-select/ng-select/themes/material.theme.css";
+/* Style de base pour le label qui englobe le checkbox */
+.custom_check {
+  display: block;
+  position: relative;
+  padding-left: 35px; /* Espace pour le checkmark */
+  margin-bottom: 12px; /* Espace entre les checkboxes */
+  cursor: pointer;
+  font-size: 18px; /* Taille de police ajustable */
+  user-select: none; /* Empêche la sélection du texte lors du clic */
+
+}
+
+/* Masque le checkbox */
+.custom_check input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+}
+
+/* Crée une boîte personnalisée */
+
+
+/* Lorsque l'utilisateur coche la case */
+.custom_check input[type="checkbox"]:checked ~ .checkmark {
+  background-color: #f44336; /* Couleur de fond quand la case est cochée */
+}
+
+/* Crée le checkmark/indicateur (caché quand non cochée) */
+.custom_check .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Affiche le checkmark quand la case est cochée */
+.custom_check input[type="checkbox"]:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style du checkmark (pouvant être ajusté pour correspondre à l'image) */
+.custom_check .checkmark:after {
+  left: 6px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  
+}
+
+
+

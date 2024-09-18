@@ -1,0 +1,642 @@
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+  <div class="container">
+    <div class="row align-items-center inner-banner">
+      <div class="col-md-12 col-12 text-center">
+        <div class="breadcrumb-list">
+          <h2>Détails du développeur</h2>
+          <nav aria-label="breadcrumb" class="page-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a [routerLink]="routes.home">Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a [routerLink]="['/employer/developer']">Liste Développeurs</a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">
+                Profil Développeur
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Breadcrumb -->
+
+<!-- Page Content -->
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <div class="company-detail-block pt-0">
+          <div class="company-detail">
+            <div class="company-detail-image">
+              <img [src]="dev?.dev.img" class="img-fluid" alt="logo" />
+            </div>
+
+            <div class="company-title">
+              <h4>{{ dev?.dev.firstname }} {{ dev?.dev.name }}</h4>
+              <p>{{ dev?.niveau }}</p>
+            </div>
+          </div>
+          <div class="company-address"></div>
+        </div>
+        <div class="company-detail-block company-description">
+          <h4 class="company-detail-title">Description</h4>
+          <p>{{ dev?.dev.presentation }}</p>
+          <p class="mb-0">{{ dev?.description }}</p>
+        </div>
+       <!-- developer-details.component.html -->
+
+<div class="card budget-widget">
+  <h4 style="text-align: center">Compétences</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <h6>Principales expertises</h6>
+      <ul class="tags">
+        <li *ngFor="let skill of mainSkills.slice(0, showAllSkills ? mainSkills.length : 3)" class="badge-design">
+          <span class="skill-name">
+            <img [src]="skill.image" alt="{{ skill.name }}" class="skill-image" />
+
+            {{ skill.name }}
+          </span>
+          <span class="skill-experience">{{ skill.pivot.nbrmonth }} mois</span>
+        </li>
+      </ul>
+      <div *ngIf="mainSkills.length === 0" class="text-center">
+        Aucune compétence principale à afficher.
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h6>Autres compétences</h6>
+      <ul class="tags">
+        <li *ngFor="let skill of otherSkills.slice(0, showAllSkills ? otherSkills.length : 3)" class="badge-design">
+          <span class="skill-name">
+            <img [src]="skill.image" alt="{{ skill.name }}" class="skill-image" />
+
+            {{ skill.name }}
+          </span>
+          <span class="skill-experience">{{ skill.pivot.nbrmonth }} mois</span>
+        </li>
+      </ul>
+      <div *ngIf="otherSkills.length === 0" class="text-center">
+        Aucune autre compétence à afficher.
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <button class="link-button" (click)="showAllSkills = !showAllSkills">
+      {{ showAllSkills ? "Voir moins" : "Voir plus" }}
+    </button>
+  </div>
+</div>
+
+
+        <div class="company-detail-block company-description">
+          <h4 class="company-detail-title">Expérience</h4>
+          <div *ngIf="dev?.dev.experiences">
+            <div
+              class="experience-set"
+              *ngFor="let experience of dev.experiences"
+            >
+              <div class="experience-set-img">
+                <img src="assets/img/icon/expereience.png" alt="img" />
+              </div>
+              <div class="experience-set-content">
+                <h5>
+                  {{ experience.title
+                  }}<span
+                    >{{ experience.startdate | date : "yyyy" }} -
+                    {{
+                      experience.enddate
+                        ? (experience.enddate | date : "yyyy")
+                        : "Présent"
+                    }}</span
+                  >
+                </h5>
+                <span>{{ experience.entreprisename }}</span>
+                <p>{{ experience.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="company-detail-block company-description">
+          <h4 class="company-detail-title">Éducation</h4>
+          <div *ngIf="dev?.dev.educations">
+            <div
+              class="experience-set"
+              *ngFor="let education of dev.educations"
+            >
+              <div class="experience-set-img">
+                <img src="assets/img/icon/report.png" alt="img" />
+              </div>
+              <div class="experience-set-content">
+                <h5>
+                  {{ education.diplome
+                  }}<span
+                    >{{ education.startdate }} - {{ education.enddate }}</span
+                  >
+                </h5>
+                <span>{{ education["école"] }}</span>
+                <p>{{ education.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Sidebar -->
+      <div
+        class="col-lg-4 col-md-12 sidebar-right theiaStickySidebar project-client-view"
+      >
+        <div class="stickybar">
+          <div class="card budget-widget">
+            <div class="budget-widget-details">
+              <div class="freelance-widget">
+                <div class="freelance-content">
+                  <div class="freelance-img">
+                    <a [routerLink]="routes.developerdetails">
+                      <img [src]="dev?.dev.img" class="img-fluid" alt="logo" />
+                    </a>
+                  </div>
+                  <div class="freelance-info"  style="margin-bottom: 0px;">
+                    <h3>
+                      <a href="#"
+                        >{{ dev?.dev.firstname }} {{ dev?.dev.name }}</a
+                      >
+                    </h3>
+                    <div class="freelance-specific"  style="margin-bottom: 0px;">{{ dev?.niveau }}</div>
+
+                    <div class="freelance-specific"  style="margin-bottom: 0px;">{{ dev?.dev.id }}</div>
+
+                    <div class="freelance-tags">
+                      <a href="javascript:void(0);" *ngFor="let skill of dev.skills">
+                        <span class="badge badge-pill badge-design">{{ skill.name }}</span>
+                      </a>
+                    </div>
+                    
+                    
+                    <div class="freelancers-price">{{ dev?.tjm }}€</div>
+                  </div>
+                </div>
+                <div class="cart-hover">
+                
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card budget-widget" >
+            <h6 style="  display: flex;
+            justify-content: center;
+            width: 100%;">Formulaire de contact</h6>
+            <form [formGroup]="form" (ngSubmit)="ajouterMsgdev()">
+
+              <div class="form-group">
+                <label for="name"
+                  >Nom complet <span style="color: orangered">*</span></label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  formControlName="name"
+                  class="form-control form-control-lg"
+                  placeholder="Ajouter votre nom"
+                />
+                <div
+                  *ngIf="
+                    form.get('name')?.invalid &&
+                    (form.get('name')?.dirty || form.get('name')?.touched)
+                  "
+                  class="alert"
+                >
+                  <span style="color: red">Nom est requis.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  formControlName="email"
+                  class="form-control"
+                  placeholder="Ajouter votre email"
+                />
+                <div
+                  *ngIf="
+                    form.get('email')?.invalid &&
+                    (form.get('email')?.dirty || form.get('email')?.touched)
+                  "
+                  class="alert"
+                >
+                  <span style="color: red">E-mail est requis.</span>
+                  <span style="color: red">E-mail invalide.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Numéro de téléphone (facultatif)</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  formControlName="phone"
+                  class="form-control form-control-lg"
+                  placeholder="Ajouter votre téléphone"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  formControlName="message"
+                  class="form-control form-control-lg"
+                ></textarea>
+                <div
+                  *ngIf="
+                    form.get('message')?.invalid &&
+                    (form.get('message')?.dirty || form.get('message')?.touched)
+                  "
+                  class="alert"
+                >
+                  <span style="color: red">Message est requis.</span>
+                </div>
+              </div>
+
+              <div class="form-group text-center">
+                <div class="mx-auto" style="max-width: 304px">
+                  <re-captcha
+                    id="recaptcha"
+                    formControlName="recaptcha"
+                    siteKey="6Lepjn4pAAAAAJL5shF6OkU3-XKoi3mW1MRVnHWo"
+                  ></re-captcha>
+                </div>
+              </div>
+              <div class="form-group">
+                <!-- Conteneur pour le centrage du bloc checkbox -->
+                <div class="input-block d-flex justify-content-center w-100">
+                  <div class="form-check form-switch d-inline-block work-check position-relative">
+                    <input type="checkbox" class="form-check-input" id="check_hour" checked=""
+                           [(ngModel)]="isCheckboxChecked" [ngModelOptions]="{standalone: true}">
+                  </div>
+                  <label for="check_hour" class="form-label ms-2">J'accepte les conditions générales</label>
+                </div>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="reg-btn" [disabled]="!form.valid" style="display: inline-block; text-align: center; width: 65%;">
+                  Demandé à être contacté
+                </button>
+              </div>
+            </form>
+            <div *ngIf="messageEnvoye" class="alert " role="alert">
+             <span style="color: green;">Votre message a été envoyé avec succès.</span> 
+            </div>
+            <!-- Message d'erreur -->
+            <div *ngIf="messageErreur" class="alert " role="alert">
+              <span style="color: red;"> {{ messageErreur }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Blog Sidebar -->
+    </div>
+  </div>
+</div>
+<!-- /Page Content -->
+<!-- The Modal -->
+<div class="modal fade custom-modal" id="hire">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-modal">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center pt-0 mb-4">
+          <img src="assets/img/logo-01.png" alt="logo" class="img-fluid mb-1" />
+          <h5 class="modal-title">Discuss your project with David</h5>
+        </div>
+        <form>
+          <div class="modal-info">
+            <div class="row">
+              <div class="col-12 col-md-12">
+                <div class="input-block">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="First name & Lastname"
+                  />
+                </div>
+                <div class="input-block">
+                  <input
+                    type="email"
+                    name="name"
+                    class="form-control"
+                    placeholder="Email Address"
+                  />
+                </div>
+                <div class="input-block">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="Phone Number"
+                  />
+                </div>
+                <div class="input-block">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    rows="5"
+                    placeholder="Message"
+                  ></textarea>
+                </div>
+                <div class="input-block row">
+                  <div class="col-12 col-md-4 pr-0">
+                    <label class="file-upload">
+                      Add Attachment <input type="file" />
+                    </label>
+                  </div>
+                  <div class="col-12 col-md-8">
+                    <p class="mb-1">Allowed file types: zip, pdf, png, jpg</p>
+                    <p>Max file size: 50 MB</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="submit-section text-center">
+            <button type="submit" class="btn btn-primary btn-block submit-btn">
+              Hire Now
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /The Modal -->
+
+<!-- The Modal -->
+<div class="modal fade" id="file">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Send Your Proposal</h4>
+        <span class="modal-close"
+          ><a
+            href="javascript:void(0);"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            ><i class="fa fa-times orange-text"></i></a
+        ></span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-info proposal-modal-info">
+          <form>
+            <div class="feedback-form proposal-form">
+              <div class="row">
+                <div class="col-md-6 input-block">
+                  <label for="Your" class="form-label">Your Price</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Price"
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="Estimated" class="form-label"
+                    >Estimated Delivery</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Estimated Hours"
+                      aria-label="Recipient's username"
+                      aria-describedby="basic-addon2"
+                    />
+                    <span class="input-group-text" id="basic-addon2">Days</span>
+                  </div>
+                </div>
+
+                <div class="col-md-12 input-block">
+                  <label for="Cover" class="form-label">Cover Letter</label>
+                  <ngx-editor [editor]="editor">
+                    <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
+                    </ngx-editor-menu>
+                  </ngx-editor>
+                </div>
+              </div>
+            </div>
+            <div class="suggested-milestones-form">
+              <div class="row">
+                <div class="col-md-4 input-block">
+                  <label for="Milestone " class="form-label"
+                    >Milestone name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Milestone name"
+                  />
+                </div>
+                <div class="col-md-2 input-block floating-icon">
+                  <label for="amount" class="form-label">Amount</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Amount"
+                  />
+                  <span><i class="feather icon-dollar-sign"></i></span>
+                </div>
+                <div class="col-md-3 input-block floating-icon">
+                  <label for="start" class="form-label">Start Date</label>
+                  <input
+                    type="text"
+                    class="form-control datetimepicker"
+                    placeholder="Choose"
+                    bsDatepicker
+                  />
+                  <span><i class="feather icon-calendar"></i></span>
+                </div>
+                <div class="col-md-3 input-block floating-icon">
+                  <label for="end date" class="form-label">End Date</label>
+                  <input
+                    type="text"
+                    class="form-control datetimepicker"
+                    placeholder="Choose"
+                    bsDatepicker
+                  />
+                  <span><i class="feather icon-calendar"></i></span>
+                </div>
+                <div class="col-md-12">
+                  <div class="new-addd">
+                    <a
+                      (click)="addDetails(details)"
+                      (keydown.enter)="addDetails(details)"
+                      tabindex="0"
+                      id="new_add1"
+                      class="add-new"
+                      href="javascript:void(0);"
+                      ><i class="feather icon-plus-circle"></i> Add New</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="row" *ngFor="let details of details; let i = index">
+                <div class="col-md-4 input-block">
+                  <label for="Milestone " class="form-label"
+                    >Milestone name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Milestone name"
+                  />
+                </div>
+                <div class="col-md-2 input-block floating-icon">
+                  <label for="Amount" class="form-label">Amount</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Amount"
+                  />
+                  <span><i class="feather icon-dollar-sign"></i></span>
+                </div>
+                <div class="col-md-3 input-block floating-icon">
+                  <label for="start" class="form-label">Start Date</label>
+                  <input
+                    type="text"
+                    class="form-control datetimepicker"
+                    placeholder="Choose"
+                    bsDatepicker
+                  />
+                  <span><i class="feather icon-calendar"></i></span>
+                </div>
+                <div class="col-md-3 input-block floating-icon">
+                  <label for="end-date" class="form-label">End Date</label>
+                  <input
+                    type="text"
+                    class="form-control datetimepicker"
+                    placeholder="Choose"
+                    bsDatepicker
+                  />
+                  <span><i class="feather icon-calendar"></i></span>
+                </div>
+                <div class="col-md-12">
+                  <div class="new-addd">
+                    <a
+                      (click)="deleteDetails(details, i)"
+                      (keydown.enter)="deleteDetails(details, i)"
+                      tabindex="0"
+                      id="new_add1"
+                      class="add-new"
+                      ><i class="feather icon-plus-circle"></i> Remove</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div id="add_row1"></div>
+            </div>
+            <div class="proposal-features">
+              <div class="proposal-widget proposal-warning">
+                <label class="custom_check">
+                  <input type="checkbox" name="select_time" checked /><span
+                    class="checkmark"
+                  ></span>
+                  <span class="proposal-text"
+                    >Stick this Proposal to the Top</span
+                  >
+                  <span class="proposal-text float-end">$12.00</span>
+                </label>
+                <p>
+                  The sticky proposal will always be displayed on top of all the
+                  proposals.
+                </p>
+              </div>
+              <div class="proposal-widget proposal-blue">
+                <label class="custom_check">
+                  <input type="checkbox" name="select_time" /><span
+                    class="checkmark"
+                  ></span>
+                  <span class="proposal-text"
+                    >Stick this Proposal to the Top</span
+                  >
+                  <span class="proposal-text float-end">$12.00</span>
+                </label>
+                <p>
+                  The sticky proposal will always be displayed on top of all the
+                  proposals.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 submit-section">
+                <label class="custom_check">
+                  <input type="checkbox" name="select_time" />
+                  <span class="checkmark"></span> I agree to the Terms And
+                  Conditions
+                </label>
+              </div>
+              <div class="col-md-12 submit-section text-end">
+                <a
+                  data-bs-dismiss="modal"
+                  href="javascript:void(0);"
+                  class="btn btn-cancel submit-btn"
+                  >Cancel</a
+                >
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /The Modal -->
+
+<!-- The Modal -->
+<div class="modal fade custom-modal" id="success">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content proposal-modal-info">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center modal-body-content pt-0">
+          <h5 class="modal-title">Submitted Successfully</h5>
+          <p>You will be Notified once, your Proposal approves.</p>
+        </div>
+        <div class="col-md-12 submit-section text-center">
+          <a
+            data-bs-dismiss="modal"
+            [routerLink]="routes.freelancer_dashboard"
+            class="btn btn-primary submit-btn"
+            >Go to Dashboard</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /The Modal -->

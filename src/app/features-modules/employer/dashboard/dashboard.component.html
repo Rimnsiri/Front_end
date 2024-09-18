@@ -1,0 +1,97 @@
+<div class="dashboard-sec" style="margin-top: 135px; width: 1008px;">
+  <div class="page-title">
+      <h3>Dashboard</h3>
+  </div>
+  <div>
+    <button  [routerLink]="['/employer/test']" class="btn btn-primary">Ajouter un test</button>
+</div><br>
+  <div class="row">
+      <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="dash-widget">
+              <div class="dash-info">
+                  <div class="dashboard-icon">
+                      <i class="fa-regular fa-comment"></i>
+                  </div>
+                  <div class="dash-widget-info">Message</div>
+              </div>
+              <div class="dash-widget-more d-flex align-items-center justify-content-between">
+                  <div class="dash-widget-count">{{ totalMessages }} </div>
+            
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="dash-widget">
+              <div class="dash-info">
+                  <div class="dashboard-icon dashboard-icon-two">
+                      <i class="fa-regular fa-file"></i>
+                  </div>
+                  <div class="dash-widget-info">Nombre Développeur</div>
+              </div>
+              <div class="dash-widget-more d-flex align-items-center justify-content-between">
+                  <div class="dash-widget-count">{{totalResponses }}</div>
+                  
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-3">
+          <div class="dash-widget">
+              <div class="dash-info">
+                  <div class="dashboard-icon dashboard-icon-three">
+                      <i class="fa-solid fa-newspaper"></i>
+                  </div>
+                  <div class="dash-widget-info">Tests Accepté</div>
+              </div>
+              <div class="dash-widget-more d-flex align-items-center justify-content-between">
+                  <div class="dash-widget-count">{{acceptedTestsCount}}</div>
+                 
+              </div>
+          </div>
+      </div>
+      
+  </div>
+
+  <!-- Chart Content -->
+  <div class="page-header profile-information">
+      <div class="row align-items-center">
+          <div class="col-12">
+              <h3 class="page-title">Liste des historiques </h3>
+              <p> </p>
+          </div>
+          
+      </div>
+      
+  </div>
+  
+ 
+  <!-- /Chart Content -->
+
+  <div class="card ">
+      <div class="table-responsive">
+        <table datatable class="table table-center table-hover mb-0 user-tables user-activities">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Categorie</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let test of tests">
+                <td>{{ test.id }}</td>
+                <td>{{ test.nom }}</td>
+                <td>{{ test.description }}</td>
+                <td>{{ test.categorie }}</td>
+                <td>{{ test.statut }}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+      </div>
+  </div>
+
+
+
+</div>

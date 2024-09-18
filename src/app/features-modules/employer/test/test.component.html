@@ -1,0 +1,186 @@
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+	<div class="container">
+	  <div class="row align-items-center inner-banner">
+		<div class="col-md-12 col-12 text-center">
+		  <div class="breadcrumb-list">
+			<h3>Test</h3>
+			<nav aria-label="breadcrumb" class="page-breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item"><a [routerLink] = "routes.home">Accueil</a></li>
+				<li class="breadcrumb-item" aria-current="page">Dépôt de test</li>
+			  </ol>
+			  
+			</nav>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <!-- /Breadcrumb -->
+  
+  <!-- Page Content -->      
+  <div class="content">
+	<div class="container">
+	  <div class="row">
+		<div class="col-12">
+		  <div class="terms-content">
+  <div class="text-center">
+	                       <button class="log-btn" type="button" (click)="scrollToProposerSection()">Proposer un Test</button>
+
+						   <button class="log-btn" type="button" (click)="passerLeTest()">Passer un Test</button>
+
+
+						</div>
+						<div class="on-board field-card select-account select-btn" #proposerSection>
+				<div class="text-center onboard-head">
+					<h2>Déposez vos tests</h2>
+					<p>Complétez les détails pour votre test pour soumettre à notre plateforme :</p>
+				</div>
+				<div class="field-item personal-info space-info">
+					<form (submit)="onSubmit($event)" enctype="multipart/form-data">
+
+						<div class="row">
+							<div class="col-md-12">
+								<h4>Informations sur le Test</h4>
+							</div>
+							<div class="col-md-6 col-lg-3">
+								<div class="input-block">
+									<label for="test-title" class="form-label">Titre du test</label>
+									<input type="text" id="test-title" class="form-control" name="test-title" [(ngModel)]="testTitle" required />
+								</div>
+							</div>
+			
+							<div class="col-md-6 col-lg-3">
+								<div class="input-block">
+									<label for="test-category" class="form-label">Catégorie</label>
+									<select id="test-category" class="form-control" name="test-category" [(ngModel)]="testCategory" required>
+										<option value="">Sélectionner une catégorie</option>
+										<option value="Programmation">Programmation</option>
+										<option value="Logique algorithmique">Logique algorithmique</option>
+										<option value="Compétences techniques">Compétences techniques</option>
+										<option value="Test général">Test général</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-3">
+								<div class="input-block">
+									<label for="test-level" class="form-label">Niveau de test</label>
+									<select id="test-level" class="form-control" name="test-level" [(ngModel)]="testLevel" required>
+										<option value="">Sélectionner un niveau</option>
+										<option value="Débutant">Débutant</option>
+										<option value="Intermédiaire">Intermédiaire</option>
+										<option value="Avancé">Avancé</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-3">
+								<div class="input-block">
+									<label for="test-duration" class="form-label">Durée estimée (en minutes)</label>
+									<input type="number" id="test-duration" class="form-control" name="test-duration" [(ngModel)]="testDuration" required />
+								</div>
+							</div>
+			
+							<div class="col-md-6 col-lg-3">
+								<div class="input-block">
+									<label for="test-description" class="form-label">Description</label>
+									<textarea id="test-description" class="form-control" rows="4" name="test-description" [(ngModel)]="testDescription" required></textarea>
+								</div>
+							</div>
+							
+							
+						</div>
+						<div class="col-md-6 col-lg-3">
+							
+							<div class="input-block">
+							<label for="test-file" class="form-label">Télécharger le fichier PDF</label>
+							<input type="file" class="form-control" id="test-file" name="test-file" (change)="onFileSelected($event)">
+							
+						</div>
+					
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="rights-checkbox" name="rights-checkbox" [(ngModel)]="rightsCheckbox" (change)="updateButtonState()" required />
+									<label class="form-check-label" for="rights-checkbox">
+										Je confirme avoir tous les droits nécessaires pour partager ce test.
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="terms-checkbox" name="terms-checkbox" [(ngModel)]="termsCheckbox" (change)="updateButtonState()" required />
+									<label class="form-check-label" for="terms-checkbox">
+										J'accepte les conditions.
+									</label>
+								</div>
+							</div>
+						</div>
+						<div *ngIf="!bothCheckboxesChecked" class="alert alert-warning" role="alert">
+							Veuillez cocher les deux cases pour pouvoir valider.
+						</div>
+						<div class="text-center mb-3">
+							<label for="companyPassword" class="form-label">Mot-clé pour confirmer :</label>
+							<div class="input-container">
+								<input type="password" id="companyPassword" class="form-control" name="companyPassword" [(ngModel)]="companyPassword" required [type]="showCompanyPassword ? 'text' : 'password'" /><br>
+								<div class="checkbox-container">
+									<input type="checkbox" id="showCompanyPasswordCheckbox" class="checkbox-input" (change)="toggleCompanyPasswordVisibility()" />
+									<label for="showCompanyPasswordCheckbox" class="checkbox-label">Afficher le mot de passe</label>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="text-center">
+							<button class="log-btn" type="button" (click)="viewTest()">Voir le Test</button>
+							<button (click)="validateForm()" class="log-btn" type="submit" [disabled]="!bothCheckboxesChecked">Proposer le Test</button>
+						</div>
+			
+					</form>
+				</div>
+			</div>
+			<!-- Nouvelle section -->
+<div class="on-board field-card select-account select-btn" #passer>
+    <div class="text-center onboard-head">
+        <h2>Passez un test</h2>
+        <p>Remplissez le mot-clé et commencez le test :</p>
+    </div>
+    <div class="field-item personal-info space-info">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="text-center mb-3">
+					<label for="developerEmail" class="form-label">Votre adresse e-mail :</label>
+<input type="email" id="developerEmail" class="form-control larger-input" name="developerEmail" [(ngModel)]="developerEmail" required style="width: 300px; margin: 0 auto;" />
+<br>
+					<label for="developerKeyword" class="form-label">Mot-clé :</label>
+					<div class="input-container">
+						<input type="password" id="developerPassword" class="form-control" name="developerPassword" [(ngModel)]="developerPassword" required [type]="showDeveloperPassword ? 'text' : 'password'" /><br>
+						<div class="checkbox-container">
+							<input type="checkbox" id="showDeveloperPasswordCheckbox" class="checkbox-input" (change)="toggleDeveloperPasswordVisibility()" />
+							<label for="showDeveloperPasswordCheckbox" class="checkbox-label">Afficher le mot de passe</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="text-center">
+					<button class="log-btn custom-width" type="button" (click)="startTest()">Commencer le test</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+<!-- /Nouvelle section -->
+
+			<!-- /Skills & Experience -->
+					  
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+ 
+  
+  <!-- /Page Content -->
+  

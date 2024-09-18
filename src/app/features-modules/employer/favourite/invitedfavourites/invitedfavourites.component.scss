@@ -1,0 +1,26 @@
+.projects-btn{
+    border-radius: 5px;
+    border-color: transparent;
+    text-transform: capitalize;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    background-color: #E65425;
+    padding: 9px 20px;
+    font-weight: 700;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    text-align: center;
+  }
+  .projects-btn:hover{
+    background: #161c2d;
+      color: #fff;
+      transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+   }

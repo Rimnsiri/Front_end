@@ -1,0 +1,29 @@
+<app-employerheader></app-employerheader>
+<ng-container *ngIf="employee">
+    <!-- Page Content -->
+    <div class="content content-page p-0 m-0">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <div *ngIf="shouldDisplaySidemenu()" class="col-xl-3 col-lg-4 theiaStickySidebar  " style="margin-top: 130px; width: 330px; margin-left: 40px;" >
+                    <div class="stickybar">
+                        <app-sidemenu></app-sidemenu>
+                    </div>
+                </div>
+                <!-- /Sidebar -->
+
+                <!-- Contenu principal -->
+                <!-- Utilisez `ngClass` pour les pages avec sidemenu et conservez `col-lg-12` pour celles sans -->
+                <div [ngClass]="shouldDisplaySidemenu() ? 'col-xl-9 col-lg-8' : '' " >
+                    <router-outlet></router-outlet>
+                </div>
+                <!-- /Contenu principal -->
+            </div>
+        </div>
+    </div>
+    <!-- /Page Content -->
+</ng-container>
+
+<div *ngIf="employee === false">
+    <router-outlet></router-outlet>
+</div>

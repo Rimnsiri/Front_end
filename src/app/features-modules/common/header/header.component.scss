@@ -1,0 +1,149 @@
+.navbar-brand.logo img {
+    width: 190px; 
+    height: auto;
+
+}
+.reg-btn {
+  width: 220px;
+height: 40px;
+display: inline-block;
+border-radius: 5px;
+border-color: transparent;
+text-transform: capitalize;
+background: transparent;
+border: 1px solid #E65425;
+color: #E65425;
+padding: 9px 20px;
+font-weight: 700;
+transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+-ms-transition: all 0.5s ease;
+-webkit-transition: all 0.5s ease;
+text-align: center;
+  }
+  
+  .reg-btn:hover {
+    background: #E65425;
+    color: #fff;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+  }
+
+  .log-btn{
+    width: 220px;
+    height: 42px;
+    display: inline-block;
+    border-radius: 5px;
+    border-color: transparent;
+    text-transform: capitalize;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    background-color: #E65425;
+    padding: 9px 20px;
+    font-weight: 700;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    text-align: center;
+  }
+ .log-btn:hover{
+  background: #161c2d;
+    color: #fff;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+ }
+ .main-nav li a:hover {
+  color: rgb(249, 90, 32);
+  cursor: pointer; /* Change le curseur en un pointeur */
+}
+.reg-btn{
+  cursor: pointer; 
+ 
+}
+log-btn{
+  cursor: pointer !important; 
+}
+.nav-container {
+  padding-left: 20px !important; /* Ajustez cette valeur selon le déplacement souhaité */
+}
+.main-nav {
+  position: relative !important;
+  left: 50px; /* Ajustez cette valeur selon le déplacement souhaité */
+}
+
+
+.header {
+  height: 60px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: fixed; /* Fixe le header en haut de la page */
+  width: 100%; /* Assure que le header s'étende sur toute la largeur */
+  top: 0; /* Positionne le header tout en haut de la page */
+  left: 0; /* Alignez à gauche pour éviter tout décalage horizontal */
+  overflow: hidden; /* Empêche le contenu de déborder */
+  z-index: 1000; /* S'assure que le header reste au-dessus des autres éléments */
+}
+.login-link {
+  height: 40px;
+display: inline-block;
+border-radius: 5px;
+border-color: transparent;
+text-transform: capitalize;
+background: transparent;
+border: 1px solid #E65425;
+color: #E65425;
+padding: 9px 20px;
+font-weight: 700;
+transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+-ms-transition: all 0.5s ease;
+-webkit-transition: all 0.5s ease;
+text-align: center;
+}
+
+.login-link:hover {
+  background-color: #E65425;/* Fond orange au survol */
+  color: white; /* Texte blanc au survol */
+}
+
+.sign-link {
+  height: 40px;
+  display: inline-block;
+  border-radius: 5px;
+  border-color: transparent;
+  text-transform: capitalize;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  background-color: #E65425;
+  padding: 9px 20px;
+  font-weight: 700;
+  transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  text-align: center;
+}
+
+.sign-link:hover {
+  background: #161c2d;
+  color: #fff;
+  transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}

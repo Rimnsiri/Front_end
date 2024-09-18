@@ -1,0 +1,21 @@
+.collapse {
+    text-align: justify; /* Justifie le texte à l'intérieur de la classe collapse */
+}
+.row {
+    margin-left: 40px; 
+    margin-right: 40px; 
+  }
+  
+  @media (min-width: 768px) {
+    .row {
+      margin-left: 50px; 
+      margin-right: 50px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .row {
+      margin-left: 80px;  
+      margin-right: 80px;
+    }
+  }
