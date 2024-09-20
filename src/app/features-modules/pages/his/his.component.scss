@@ -22,3 +22,24 @@
     width: 600px; /* Ajuster la largeur de l'image selon vos besoins */
     height: auto; /* Hauteur automatique pour conserver les proportions */
 }
+
+
+
+.row {
+    margin-left: 30px; 
+    margin-right: 30px; 
+  }
+  
+  @media (min-width: 768px) {
+    .row {
+      margin-left: 50px;  
+      margin-right: 50px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .row {
+      margin-left: 80px;  
+      margin-right: 80px;
+    }
+  }

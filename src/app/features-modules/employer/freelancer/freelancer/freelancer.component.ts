@@ -516,5 +516,7 @@ sortDevelopersByPopularity(): void {
   console.log("La fonction de tri par popularité n'est pas encore implémentée.");
 }
 
-
+scrollToTop(): void {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 }

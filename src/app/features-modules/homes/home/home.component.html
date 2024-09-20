@@ -498,55 +498,45 @@
     </div>
     <div class="row" id="accordionExample">
       <div class="col-lg-6">
+        
         <div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
           <h4 class="faq-title">
-            <a
-              class="collapsed"
-              data-bs-toggle="collapse"
-              href="#faqOne"
-              aria-expanded="false"
-            >
-              Quelles sont les distinctions entre un paiement journalier et
-              mensuel?</a
-            >
+            <a data-bs-toggle="collapse"
+            [ngClass]="{'open': isOpen('faqOne'), 'collapsed': !isOpen('faqOne')}"
+            (click)="toggleAccordion('faqOne')"
+            aria-expanded="isOpen('faqOne')"
+         >
+              Quelles sont les distinctions entre un paiement journalier et mensuel?
+            </a>
           </h4>
-          <div
-            id="faqOne"
-            class="card-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
+          <div *ngIf="isOpen('faqOne')" class="card-collapse">
             <p>
               Le paiement journalier et le paiement mensuel sont deux méthodes
-              différentes lorsque vous recrutez un développeur. Fréquence de
-              Paiement : Optez pour la régularité avec le paiement journalier,
-              effectué quotidiennement à la fin de chaque journée de travail. Ou
-              choisissez la stabilité du paiement mensuel, intervenant une fois
-              par mois, généralement à la fin du mois civil. Flexibilité
-              Budgétaire : Le paiement journalier offre une flexibilité
-              budgétaire accrue avec des montants répartis quotidiennement. À
-              l'inverse, le paiement mensuel procure une prévisibilité
-              facilitant la planification budgétaire à plus long terme.
-              Convenance et Préférences : Votre choix entre paiement journalier
-              ou mensuel dépend de vos préférences et des besoins spécifiques de
-              votre entreprise.
+               différentes lorsque vous recrutez un développeur. Fréquence de Paiement : 
+               Optez pour la régularité avec le paiement journalier, effectué quotidiennement
+                à la fin de chaque journée de travail. Ou choisissez la stabilité du paiement mensuel,
+                 intervenant une fois par mois, généralement à la fin du mois civil. Flexibilité Budgétaire : 
+                 Le paiement journalier offre une flexibilité budgétaire accrue avec des montants répartis quotidiennement.
+                  À l'inverse, le paiement mensuel procure une prévisibilité facilitant la planification budgétaire à 
+              plus long terme. Convenance et Préférences : Votre choix entre paiement journalier ou mensuel dépend de vos préférences 
+              et des besoins spécifiques de votre entreprise.
             </p>
           </div>
         </div>
+        
         <div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
           <h4 class="faq-title">
-            <a
+            <a data-bs-toggle="collapse"
               class="collapsed"
-              data-bs-toggle="collapse"
-              href="#faqtwo"
-              aria-expanded="false"
+              (click)="toggleAccordion('faqtwo')"
+              [ngClass]="{'open': isOpen('faqtwo'), 'collapsed': !isOpen('faqtwo')}"
+              aria-expanded="isOpen('faqtwo')"
               >Est-ce que la mise en œuvre de cette procédure engendra des frais
               élevés ?</a
             >
           </h4>
           <div
-            id="faqtwo"
-            class="card-collapse collapse"
-            data-bs-parent="#accordionExample"
+            *ngIf="isOpen('faqtwo')" class="card-collapse"
           >
             <p>
               Le coût de la procédure dépend de divers facteurs tels que la
@@ -563,18 +553,17 @@
         <div class="faq-card aos aos-init aos-animate" data-aos="fade-up">
           <h4 class="faq-title">
             <a
-              class="collapsed"
               data-bs-toggle="collapse"
-              href="#faqsix"
-              aria-expanded="false"
+              class="collapsed"
+              (click)="toggleAccordion('faqsix')"
+              [ngClass]="{'open': isOpen('faqsix'), 'collapsed': !isOpen('faqsix')}"
+              aria-expanded="isOpen('faqsix')"
               >Comment DevFactory peut-il garantir qu'il sélectionne le
               développeur idéal pour les besoins de mon entreprise ?</a
             >
           </h4>
           <div
-            id="faqsix"
-            class="card-collapse collapse"
-            data-bs-parent="#accordionExample"
+            *ngIf="isOpen('faqsix')" class="card-collapse"
           >
             <p>
               Notre garantie repose sur la rigueur de notre processus de
@@ -589,16 +578,16 @@
             <a
               class="collapsed"
               data-bs-toggle="collapse"
-              href="#faqseven"
-              aria-expanded="false"
+              (click)="toggleAccordion('faqseven')"
+              [ngClass]="{'open': isOpen('faqseven'), 'collapsed': !isOpen('faqseven')}"
+              aria-expanded="isOpen('faqseven')"
             >
               Quelle est la durée de travail hebdomadaire pour laquelle je peux
               engager les développeurs de DevFactory ?</a
             >
           </h4>
           <div
-            id="faqseven"
-            class="card-collapse collapse"
+          *ngIf="isOpen('faqseven')" class="card-collapse "
             data-bs-parent="#accordionExample"
           >
             <p>

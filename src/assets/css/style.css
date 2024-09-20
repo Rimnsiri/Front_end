@@ -31460,4 +31460,14 @@ a[_ngcontent-ng-c1411523848] {
 
 
 
-	
+
+  
+  /* Appliquer les marges uniquement si la classe "has-margins" est présente */
+.has-margins .footer .row {
+	margin-right: 80px; /* Ajouter la marge droite */
+	margin-left: 80px;  /* Ajouter la marge gauche */
+  }
+  
+  
+
+  

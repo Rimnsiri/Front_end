@@ -195,20 +195,15 @@ input:checked + .slider:before {
   .title1 {
     text-align: center;
     font-size: 42px; 
-    color: #efa77b;
+    color:  #e75e30;
     font-family:serif;
     font-weight: bold;
     margin-left: 45px;
+    margin-bottom: 30px; 
 
   }
-  .title2 {
-    text-align: center;
-    font-size:40px; 
-    color:  #e75e30;
-    font-family:serif;
-     margin-bottom: -30px; /* Réduire la marge inférieure du titre */
-     margin-left: 45px;
-    
+  .title1 span {
+    color: #efa77b;
   } 
  
   .btn {
@@ -350,8 +345,11 @@ input:checked + .slider:before {
   }
 }
 .content-wrapper {
-  float: right;
-  width: 85%; /* Vous pouvez ajuster la largeur selon le besoin */
+  padding-top: 200px;
+}
+.content-wrapper p {
+  color: black;
+  margin-top: 10px;
 }
 .reg-btn {
   width: 220px;
@@ -432,11 +430,7 @@ text-align: center;
     margin-right: auto; /* Ajuster pour centrer le .content si nécessaire */
   }
 
-  .content p {
-    text-align: left;
-    margin: 0 auto 0 50px;
-    max-width: 550px;
-  }
+ 
 
   .contact-form {
     padding: 50px;
@@ -487,7 +481,7 @@ text-align: center;
     max-width: 800px;
     margin: 0 auto;
     text-align: left;
-    margin-left: 70px;
+    margin-left: 20px;
   }
 }
 
@@ -509,7 +503,8 @@ text-align: center;
 
   .content, .contact-form {
     width: 100%;
-    max-width: 600px; /* Ajuster selon la taille que tu veux */
+    max-width: 600px; 
     margin: 0 auto;
   }
 }
+

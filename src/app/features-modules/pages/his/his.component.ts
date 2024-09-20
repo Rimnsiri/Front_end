@@ -7,9 +7,8 @@ import * as AOS from 'aos';
   styleUrls: ['./his.component.scss']
 })
 export class HisComponent implements AfterViewInit {
-  public routes = routes
+  public routes = routes;
   ngAfterViewInit(): void {
-    
     AOS.init({
       duration: 1000,  
       once: true       

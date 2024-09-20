@@ -267,5 +267,18 @@ text-align: center;
 }
 
 
+.faq-card .faq-title a{
+  cursor: pointer;
+  transition: color 0.3s ease; 
+  color: black; 
+}
+
+.faq-card .faq-title .collapsed:hover {
+  color: #E65425;
+} 
 
 
+
+.faq-card .faq-title a.open {
+  color: #E65425;
+}

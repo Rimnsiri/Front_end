@@ -2,7 +2,7 @@
 <div class="bread-crumb-bar">
   <div class="container">
     <div class="row align-items-center inner-banner">
-      <div class="col-md-12 col-12 text-center">
+      <div class="text-center col-md-12 col-12">
         <div class="breadcrumb-list">
           <h2>Détails du développeur</h2>
           <nav aria-label="breadcrumb" class="page-breadcrumb">
@@ -28,9 +28,10 @@
 <!-- Page Content -->
 <div class="content">
   <div class="container">
-    <div class="row">
+    <div class="row" style=" margin-left: 40px; 
+  margin-right: 40px; ">
       <div class="col-lg-8 col-md-12">
-        <div class="company-detail-block pt-0">
+        <div class="pt-0 company-detail-block">
           <div class="company-detail">
             <div class="company-detail-image">
               <img [src]="dev?.dev.img" class="img-fluid" alt="logo" />
@@ -86,7 +87,7 @@
       </div>
     </div>
   </div>
-  <div class="text-center mt-3">
+  <div class="mt-3 text-center">
     <button class="link-button" (click)="showAllSkills = !showAllSkills">
       {{ showAllSkills ? "Voir moins" : "Voir plus" }}
     </button>
@@ -267,7 +268,7 @@
                 </div>
               </div>
 
-              <div class="form-group text-center">
+              <div class="text-center form-group">
                 <div class="mx-auto" style="max-width: 304px">
                   <re-captcha
                     id="recaptcha"
@@ -286,7 +287,7 @@
                   <label for="check_hour" class="form-label ms-2">J'accepte les conditions générales</label>
                 </div>
               </div>
-              <div class="form-group text-center">
+              <div class="text-center form-group">
                 <button type="submit" class="reg-btn" [disabled]="!form.valid" style="display: inline-block; text-align: center; width: 65%;">
                   Demandé à être contacté
                 </button>
@@ -322,8 +323,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="text-center pt-0 mb-4">
-          <img src="assets/img/logo-01.png" alt="logo" class="img-fluid mb-1" />
+        <div class="pt-0 mb-4 text-center">
+          <img src="assets/img/logo-01.png" alt="logo" class="mb-1 img-fluid" />
           <h5 class="modal-title">Discuss your project with David</h5>
         </div>
         <form>
@@ -363,7 +364,7 @@
                   ></textarea>
                 </div>
                 <div class="input-block row">
-                  <div class="col-12 col-md-4 pr-0">
+                  <div class="pr-0 col-12 col-md-4">
                     <label class="file-upload">
                       Add Attachment <input type="file" />
                     </label>
@@ -376,7 +377,7 @@
               </div>
             </div>
           </div>
-          <div class="submit-section text-center">
+          <div class="text-center submit-section">
             <button type="submit" class="btn btn-primary btn-block submit-btn">
               Hire Now
             </button>
@@ -415,7 +416,7 @@
                     placeholder="Your Price"
                   />
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="mb-3 col-md-6">
                   <label for="Estimated" class="form-label"
                     >Estimated Delivery</label
                   >
@@ -623,11 +624,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="text-center modal-body-content pt-0">
+        <div class="pt-0 text-center modal-body-content">
           <h5 class="modal-title">Submitted Successfully</h5>
           <p>You will be Notified once, your Proposal approves.</p>
         </div>
-        <div class="col-md-12 submit-section text-center">
+        <div class="text-center col-md-12 submit-section">
           <a
             data-bs-dismiss="modal"
             [routerLink]="routes.freelancer_dashboard"

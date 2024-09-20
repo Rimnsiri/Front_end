@@ -1,6 +1,4 @@
-.collapse {
-    text-align: justify; /* Justifie le texte à l'intérieur de la classe collapse */
-}
+
 .row {
     margin-left: 40px; 
     margin-right: 40px; 
@@ -19,3 +17,29 @@
       margin-right: 80px;
     }
   }
+  
+  .basics-faq {
+    margin-bottom: 40px;
+  }
+  .collapse {
+    transition: none !important; 
+  }
+  
+
+
+
+ .card-header {
+  cursor: pointer;
+  transition: color 0.3s ease; 
+  color: black; 
+}
+
+.card-header a.open{
+  color: #E65425; 
+}
+
+.card-header a:hover {
+  color: #E65425;
+} 
+  
+  

@@ -2,7 +2,7 @@
 <div class="bread-crumb-bar">
 	<div class="container">
 		<div class="row align-items-center inner-banner">
-			<div class="col-md-12 col-12 text-center">
+			<div class="text-center col-md-12 col-12">
 				<div class="breadcrumb-list">
 					<h3>Contact</h3>
 					<nav aria-label="breadcrumb" class="page-breadcrumb">
@@ -17,22 +17,29 @@
 	</div>
 </div>
 <!-- /Breadcrumb -->
-<div class="container1">
-  <div class="content" >
+<div class="container">
+  <div class="row">
+  <div class="col-lg-6 ">
     <div class="content-wrapper">
-      <h1 class="title1">Parlons de votre</h1>
-      <h1 class="title2">projet plus en détail.</h1>
-      <div class="content" style="max-width: 1200px;">
-        <p class="dev">Notre engagement est de fournir des solutions personnalisées et innovantes qui s'adaptent parfaitement à chaque secteur d'activité.</p>
-        <p>Notre équipe se compose de professionnels engagés, alliant compétences de développement, conception et gestion de projet. Notre passion réside dans la création de solutions personnalisées qui non seulement répondent, mais dépassent les attentes de nos clients. Nous croyons en une collaboration étroite avec nos clients, mettant en œuvre leurs idées et leur vision pour concrétiser un produit final exceptionnel. Forts de notre expérience et de notre engagement envers l'excellence, nous vous assurons une satisfaction totale quant aux résultats de votre projet.</p>
-      </div>
+      <div class="text-center job-content-blk aos" data-aos="fade-up">
+      <h2 class="title1">Parlons de votre <br><span>projet plus en détail.</span></h2>
+      <p>Notre engagement est de fournir des solutions personnalisées et innovantes qui s'adaptent 
+        parfaitement à chaque secteur d'activité.</p>
+      <p>Notre équipe se compose de professionnels engagés, alliant compétences de développement,
+         conception et gestion de projet. Notre passion réside dans la création de solutions personnalisées
+          qui non seulement répondent, mais dépassent les attentes de nos clients. Nous croyons en une collaboration 
+          étroite avec nos clients, mettant en œuvre leurs idées et leur vision pour concrétiser un produit final exceptionnel.
+           Forts de notre expérience et de notre engagement envers l'excellence,
+         nous vous assurons une satisfaction totale quant aux résultats de votre projet.</p>
+    </div>
     </div>
   </div>
+  <div  class="col-lg-6">
   <div class="contact-form" [ngStyle]="{ 'margin-right.px': getMarginRight() }">
 
     <div class="card budget-widget">
-      <h6 style="  display: flex;
-      justify-content: center;
+      <h6 style="display: flex;
+      justify-content: center; 
       width: 100%;" >Formulaire de contact</h6>
       <form [formGroup]="form"  (ngSubmit)="submitForm()">
 
@@ -68,7 +75,7 @@
           </div>
         </div>
         
-        <div class="form-group text-center">
+        <div class="text-center form-group">
           <div class="mx-auto" style="max-width: 304px;">
             <re-captcha id="recaptcha" formControlName="recaptcha" siteKey="6Lepjn4pAAAAAJL5shF6OkU3-XKoi3mW1MRVnHWo"></re-captcha>
           </div>
@@ -87,7 +94,7 @@
           </div>
         </div>
         
-        <div class="form-group text-center">
+        <div class="text-center form-group">
           <button type="submit" class="reg-btn" [disabled]="!form.valid">Demandé à être contacté</button>
         </div>
       </form>
@@ -100,6 +107,8 @@
        </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
     

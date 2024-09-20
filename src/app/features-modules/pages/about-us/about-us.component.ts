@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener,AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import * as AOS from 'aos';
@@ -9,7 +9,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.scss'],
 })
-export class AboutUsComponent {
+export class AboutUsComponent implements AfterViewInit {
   public isCheckboxChecked = true;
   form!: FormGroup;
 
@@ -30,6 +30,13 @@ export class AboutUsComponent {
   messageEnvoye = false;
   messageErreur = '';
 
+  ngAfterViewInit(): void {
+    
+    AOS.init({
+      duration: 1000,  
+      once: true       
+    });
+  }
   addTask(): void {
     if (this.newTask.trim().length) {
       this.taskList.push(this.newTask.trim());
@@ -128,7 +135,7 @@ export class AboutUsComponent {
     if (this.isLargeScreen) {
       return -20;
     } else {
-      return 0;
+      return 80;
     }
   }
 

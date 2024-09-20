@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   technologies: any[] = []; 
 devs: any[] = [];
 selectedTechnologies: technologies[] = [];
-
+private openAccordions: Set<string> = new Set();
 devsWithNotes: DeveloperWithNotes[] = [];
 private apiUrl = 'http://127.0.0.1:8000/';
 
@@ -69,6 +69,20 @@ private apiUrl = 'http://127.0.0.1:8000/';
   
   }
   
+  
+
+  toggleAccordion(faqId: string): void {
+    if (this.openAccordions.has(faqId)) {
+      this.openAccordions.delete(faqId);
+    } else {
+      this.openAccordions.add(faqId);
+    }
+  }
+
+  isOpen(faqId: string): boolean {
+    return this.openAccordions.has(faqId);
+  }
+
   
   onItemSelect(item: any): void {
     console.log('Élément sélectionné :', item);

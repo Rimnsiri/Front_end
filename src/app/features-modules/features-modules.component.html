@@ -27,7 +27,7 @@
   <router-outlet></router-outlet>
   
   <app-footer *ngIf="isFooter === true"
-  [ngClass]="{'d-none': page === 'login' || page === 'register' || page === 'forgot-password' || page === 'change-password'}"></app-footer>
+  [ngClass]="{'d-none': page === 'login' || page === 'register' || page === 'forgot-password' || page === 'change-password' ,'has-margins': base !== 'home'}"></app-footer>
 
   <button *ngIf="
       (base !== 'home4' && base !== 'home5' && base === 'home1') ||
